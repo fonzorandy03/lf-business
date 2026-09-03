@@ -35,12 +35,15 @@ export function ContactHero() {
 
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-32 sm:px-8 lg:px-10">
         <div className="max-w-3xl">
-          <div className={cn('mb-6 flex items-center gap-4', step())}>
+          <p
+            className={cn(
+              'mb-6 flex items-center gap-4 font-sans text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft',
+              step(),
+            )}
+          >
             <span className="h-px w-10 bg-gold" aria-hidden="true" />
-            <span className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
-              LF Business
-            </span>
-          </div>
+            LF Business
+          </p>
 
           <h1
             className={cn(
@@ -54,7 +57,7 @@ export function ContactHero() {
 
           <p
             className={cn(
-              'mt-6 max-w-xl font-serif text-xl italic text-gold-soft sm:text-2xl',
+              'mt-4 max-w-xl font-serif text-2xl italic text-gold-soft sm:text-3xl lg:text-4xl',
               step(),
             )}
             style={{ transitionDelay: mounted ? '220ms' : '0ms' }}
@@ -64,7 +67,7 @@ export function ContactHero() {
 
           <p
             className={cn(
-              'mt-5 max-w-lg font-sans text-[0.95rem] leading-relaxed text-ivory/60',
+              'mt-8 max-w-xl font-sans text-base leading-relaxed text-ivory/75 sm:text-lg',
               step(),
             )}
             style={{ transitionDelay: mounted ? '320ms' : '0ms' }}
