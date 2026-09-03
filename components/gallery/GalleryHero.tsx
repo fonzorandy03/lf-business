@@ -38,20 +38,21 @@ export function GalleryHero() {
         />
       </div>
 
-      <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">
-        <div className="max-w-2xl">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
+        <div className="max-w-3xl">
           <p
             className={cn(
-              'font-mono text-xs uppercase tracking-[0.32em] text-gold transition-all duration-700',
+              'mb-6 flex items-center gap-4 text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft transition-all duration-700',
               entered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
             )}
           >
+            <span className="h-px w-10 bg-gold" aria-hidden="true" />
             LF Business
           </p>
 
           <h1
             className={cn(
-              'mt-5 font-serif text-5xl leading-[0.95] text-ivory transition-all duration-[900ms] ease-out sm:text-7xl',
+              'font-serif text-5xl font-medium leading-[1.02] text-ivory transition-all duration-[900ms] ease-out sm:text-6xl lg:text-7xl',
               entered ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
             )}
             style={{ transitionDelay: '120ms' }}
@@ -61,7 +62,7 @@ export function GalleryHero() {
 
           <p
             className={cn(
-              'mt-6 max-w-xl font-serif text-xl italic text-ivory/85 transition-all duration-[900ms] ease-out sm:text-2xl',
+              'mt-4 max-w-xl font-serif text-2xl italic text-gold-soft transition-all duration-[900ms] ease-out sm:text-3xl lg:text-4xl',
               entered ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
             )}
             style={{ transitionDelay: '260ms' }}
@@ -71,7 +72,7 @@ export function GalleryHero() {
 
           <p
             className={cn(
-              'mt-5 max-w-lg text-[0.95rem] leading-relaxed text-ivory/60 transition-all duration-[900ms] ease-out',
+              'mt-8 max-w-xl text-base leading-relaxed text-ivory/75 transition-all duration-[900ms] ease-out sm:text-lg',
               entered ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
             )}
             style={{ transitionDelay: '400ms' }}
