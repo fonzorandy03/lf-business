@@ -14,8 +14,14 @@ export function ContactHero() {
 
   const step = () =>
     cn(
-      'transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none',
+      'transition-all duration-700',
       mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+    )
+
+  const contentStep = () =>
+    cn(
+      'transition-all duration-[900ms] ease-out',
+      mounted ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
     )
 
   return (
@@ -48,7 +54,7 @@ export function ContactHero() {
           <h1
             className={cn(
               'font-serif text-5xl font-medium leading-[1.02] text-ivory text-balance sm:text-6xl lg:text-7xl',
-              step(),
+              contentStep(),
             )}
             style={{ transitionDelay: mounted ? '120ms' : '0ms' }}
           >
@@ -58,9 +64,9 @@ export function ContactHero() {
           <p
             className={cn(
               'mt-4 max-w-xl font-serif text-2xl italic text-gold-soft sm:text-3xl lg:text-4xl',
-              step(),
+              contentStep(),
             )}
-            style={{ transitionDelay: mounted ? '220ms' : '0ms' }}
+            style={{ transitionDelay: mounted ? '260ms' : '0ms' }}
           >
             Parliamo della tua esigenza.
           </p>
@@ -68,9 +74,9 @@ export function ContactHero() {
           <p
             className={cn(
               'mt-8 max-w-xl font-sans text-base leading-relaxed text-ivory/75 sm:text-lg',
-              step(),
+              contentStep(),
             )}
-            style={{ transitionDelay: mounted ? '320ms' : '0ms' }}
+            style={{ transitionDelay: mounted ? '400ms' : '0ms' }}
           >
             Per informazioni, assistenza professionale o per approfondire una questione specifica,
             puoi contattare direttamente lo Studio.
