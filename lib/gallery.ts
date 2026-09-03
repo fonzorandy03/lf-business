@@ -55,7 +55,10 @@ export const allGalleryImages: GalleryImage[] = [
   { src: `${B}/foto-21-piazza-dei-martiri.jpeg`, alt: 'Monumento ai Martiri Napoletani in Piazza dei Martiri', category: 'territorio', title: 'Monumento ai Martiri', location: 'Napoli', caption: 'Il monumento simbolo di Piazza dei Martiri.', span: 'tall', orientation: 'portrait' },
 ]
 
-export const heroImage = allGalleryImages[0]
+export const heroImage: GalleryImage = {
+  ...allGalleryImages[0],
+  src: '/images/non sfocata.png',
+}
 export const breakImage = allGalleryImages[6]
 
 export const featuredEvent = {

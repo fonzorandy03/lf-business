@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Galleria | LF Business',
     description:
       "Immagini dello Studio Legale LF Business: ambienti, attività professionale ed eventi istituzionali.",
-    images: ['/images/gallery/foto-08.webp'],
+    images: ['/images/non sfocata.png'],
     type: 'website',
   },
   alternates: { canonical: '/galleria' },
