@@ -42,7 +42,7 @@ export function GalleryHero() {
         <div className="max-w-3xl">
           <p
             className={cn(
-              'mb-6 flex items-center gap-4 text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft transition-all duration-700',
+              'mb-6 flex items-center gap-4 font-sans text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft transition-all duration-700',
               entered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
             )}
           >
@@ -72,7 +72,7 @@ export function GalleryHero() {
 
           <p
             className={cn(
-              'mt-8 max-w-xl text-base leading-relaxed text-ivory/75 transition-all duration-[900ms] ease-out sm:text-lg',
+              'mt-8 max-w-xl font-sans text-base leading-relaxed text-ivory/75 transition-all duration-[900ms] ease-out sm:text-lg',
               entered ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
             )}
             style={{ transitionDelay: '400ms' }}

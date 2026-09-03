@@ -37,7 +37,7 @@ export function ContactHero() {
         <div className="max-w-3xl">
           <div className={cn('mb-6 flex items-center gap-4', step())}>
             <span className="h-px w-10 bg-gold" aria-hidden="true" />
-            <span className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
+            <span className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
               LF Business
             </span>
           </div>
@@ -64,7 +64,7 @@ export function ContactHero() {
 
           <p
             className={cn(
-              'mt-5 max-w-lg text-[0.95rem] leading-relaxed text-ivory/60',
+              'mt-5 max-w-lg font-sans text-[0.95rem] leading-relaxed text-ivory/60',
               step(),
             )}
             style={{ transitionDelay: mounted ? '320ms' : '0ms' }}
