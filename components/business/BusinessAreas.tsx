@@ -3,7 +3,7 @@ import { AreaCard } from '@/components/business/AreaCard'
 import { BUSINESS_AREAS } from '@/lib/business'
 
 export function BusinessAreas() {
-  const [feature, second, third, fourth] = BUSINESS_AREAS
+  const [feature, second, third] = BUSINESS_AREAS
 
   return (
     <section id="aree" className="scroll-mt-24 bg-background">
@@ -41,15 +41,6 @@ export function BusinessAreas() {
           </Reveal>
           <Reveal className="lg:col-span-5" delay={160}>
             <AreaCard area={third} sizes="(max-width: 1024px) 100vw, 42vw" />
-          </Reveal>
-
-          {/* Wide card, full width */}
-          <Reveal className="lg:col-span-12" delay={120}>
-            <AreaCard
-              area={fourth}
-              layout="wide"
-              sizes="(max-width: 1024px) 100vw, 100vw"
-            />
           </Reveal>
         </div>
       </div>

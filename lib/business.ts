@@ -29,21 +29,6 @@ export const BUSINESS_AREAS: BusinessArea[] = [
   },
   {
     number: '02',
-    category: 'Tax & Business',
-    title: 'Compravendita Crediti Fiscali',
-    description:
-      'Assistenza nelle operazioni di cessione e acquisto di crediti fiscali e nelle relative attività contrattuali.',
-    longDescription: [
-      'LF Business assiste imprese e operatori professionali nelle operazioni di cessione e acquisto di crediti fiscali, curando la due diligence, la strutturazione dell’operazione e la redazione della relativa documentazione contrattuale.',
-      'L’intervento dello Studio garantisce sicurezza giuridica e trasparenza in ogni fase, dalla verifica della cedibilità del credito alla definizione delle garanzie contrattuali, tutelando gli interessi delle parti coinvolte nel rispetto della normativa vigente.',
-    ],
-    slug: 'crediti-fiscali',
-    href: '/sezione-business/crediti-fiscali',
-    image: '/images/area-crediti-fiscali.png',
-    imageAlt: 'Facciata in vetro di un moderno grattacielo corporate al tramonto',
-  },
-  {
-    number: '03',
     category: 'Energy & Commodities',
     title: 'Commercio prodotti petroliferi',
     description:
@@ -58,7 +43,7 @@ export const BUSINESS_AREAS: BusinessArea[] = [
     imageAlt: 'Nave cisterna per il trasporto di prodotti petroliferi in mare al tramonto',
   },
   {
-    number: '04',
+    number: '03',
     category: 'Markets',
     title: 'Materie Prime & Mercati Live',
     description:

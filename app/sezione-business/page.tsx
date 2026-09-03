@@ -9,7 +9,7 @@ import { BusinessCTA } from '@/components/business/BusinessCTA'
 export const metadata: Metadata = {
   title: 'Sezione Business — LF Business | Guiding Your Business Worldwide',
   description:
-    'Consulenza legale e strategica per l’internazionalizzazione delle imprese, la compravendita di crediti fiscali, il commercio di prodotti petroliferi e i mercati delle materie prime.',
+    'Consulenza legale e strategica per l’internazionalizzazione delle imprese, il commercio di prodotti petroliferi e i mercati delle materie prime.',
   openGraph: {
     title: 'Sezione Business — LF Business',
     description:
