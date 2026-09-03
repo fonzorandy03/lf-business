@@ -19,7 +19,7 @@ export function ContactHero() {
     )
 
   return (
-    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink">
+    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/non sfocata.png"
@@ -33,19 +33,18 @@ export function ContactHero() {
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/35 to-transparent" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-20 pt-40 sm:px-10 sm:pb-28 lg:pb-36">
+      <div className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-32 sm:px-8 lg:px-10">
         <div className="max-w-3xl">
-          <div className={cn('flex items-center gap-3', step())}>
+          <div className={cn('mb-6 flex items-center gap-4', step())}>
             <span className="h-px w-10 bg-gold" aria-hidden="true" />
-            <span className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-gold-soft">
+            <span className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
               LF Business
             </span>
           </div>
 
           <h1
             className={cn(
-              'mt-6 font-serif font-medium leading-[0.95] text-ivory text-balance',
-              'text-6xl sm:text-7xl lg:text-8xl',
+              'font-serif text-5xl font-medium leading-[1.02] text-ivory text-balance sm:text-6xl lg:text-7xl',
               step(),
             )}
             style={{ transitionDelay: mounted ? '120ms' : '0ms' }}
@@ -55,7 +54,7 @@ export function ContactHero() {
 
           <p
             className={cn(
-              'mt-5 font-serif text-2xl italic text-gold-soft sm:text-3xl',
+              'mt-6 max-w-xl font-serif text-xl italic text-gold-soft sm:text-2xl',
               step(),
             )}
             style={{ transitionDelay: mounted ? '220ms' : '0ms' }}
@@ -65,7 +64,7 @@ export function ContactHero() {
 
           <p
             className={cn(
-              'mt-8 max-w-xl text-base leading-relaxed text-ivory/70 sm:text-lg',
+              'mt-5 max-w-lg text-[0.95rem] leading-relaxed text-ivory/60',
               step(),
             )}
             style={{ transitionDelay: mounted ? '320ms' : '0ms' }}
