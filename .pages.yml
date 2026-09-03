@@ -1,0 +1,115 @@
+media:
+  - name: blog_images
+    label: Immagini del blog
+    input: public/images/blog
+    output: /images/blog
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "blog: pubblica {filename}"
+      update: "blog: aggiorna {filename}"
+      delete: "blog: elimina {filename}"
+      rename: "blog: rinomina {oldFilename} in {newFilename}"
+
+content:
+  - name: blog
+    label: Articoli del blog
+    type: collection
+    path: content/blog
+    format: yaml-frontmatter
+    filename:
+      template: "{slug}.mdx"
+      field: create
+    exclude: [README.md, _template.mdx]
+    subfolders: false
+    view:
+      primary: title
+      fields: [title, date, category, author, draft, featured]
+      sort: [date, title, category, author]
+      search: [title, excerpt, category, author, body]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Titolo
+        type: string
+        required: true
+      - name: slug
+        label: Indirizzo dell'articolo
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          message: Usa solo lettere minuscole, numeri e trattini, senza spazi.
+        description: "Esempio: ricorso-tar-appalti. Non modificarlo dopo la pubblicazione."
+      - name: date
+        label: Data di pubblicazione
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: author
+        label: Autore
+        type: select
+        required: true
+        default: Avv. Luigi Ferrara
+        options:
+          values: [Avv. Luigi Ferrara, Avv. Nunzia Robustelli, LF Business]
+      - name: category
+        label: Categoria
+        type: select
+        required: true
+        default: News
+        options:
+          values:
+            - Diritto Amministrativo
+            - Appalti Pubblici
+            - TAR e Consiglio di Stato
+            - Diritto d'Impresa
+            - Internazionalizzazione
+            - LF Business
+            - News
+      - name: excerpt
+        label: Riassunto
+        type: text
+        required: true
+        description: Due o tre righe usate nell'anteprima e nella descrizione Google.
+        options:
+          minlength: 40
+          maxlength: 220
+      - name: coverImage
+        label: Immagine di copertina
+        type: image
+        required: true
+        default: /images/blog/placeholder.png
+        options:
+          media: blog_images
+          extensions: [jpg, jpeg, png, webp, avif]
+          rename: safe
+      - name: featured
+        label: In evidenza
+        type: boolean
+        default: false
+      - name: draft
+        label: Bozza (non visibile sul sito)
+        type: boolean
+        default: true
+        description: Disattiva questa opzione quando l'articolo è pronto per la pubblicazione.
+      - name: body
+        label: Testo dell'articolo
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: blog_images
+          switcher: true
+          extensions: [jpg, jpeg, png, webp, avif]
+          rename: safe
