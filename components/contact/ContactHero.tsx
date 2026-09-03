@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -18,18 +19,21 @@ export function ContactHero() {
     )
 
   return (
-    <section className="relative isolate overflow-hidden bg-ink">
-      {/* Trama tonale discreta */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-br from-ink via-ink to-[oklch(0.24_0.01_265)]"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -right-40 -top-40 -z-10 h-[36rem] w-[36rem] rounded-full bg-gold/[0.06] blur-3xl"
-      />
+    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/non sfocata.png"
+          alt="Ambiente interno dello Studio Legale LF Business"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/65 to-ink/30" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/35 to-transparent" />
+      </div>
 
-      <div className="mx-auto w-full max-w-[1400px] px-6 pb-24 pt-40 sm:px-10 sm:pb-28 lg:pb-32 lg:pt-48">
+      <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-20 pt-40 sm:px-10 sm:pb-28 lg:pb-36">
         <div className="max-w-3xl">
           <div className={cn('flex items-center gap-3', step())}>
             <span className="h-px w-10 bg-gold" aria-hidden="true" />

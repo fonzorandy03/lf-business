@@ -14,7 +14,7 @@ export function GalleryHero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-[68vh] items-end overflow-hidden bg-ink pb-14 pt-32 sm:min-h-[76vh] sm:pb-20">
+    <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink pb-14 pt-32 sm:pb-20">
       {/* Background photograph with very slow scale-in */}
       <div className="absolute inset-0">
         <Image
