@@ -14,7 +14,7 @@ export function GalleryHero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink pb-14 pt-32 sm:pb-20">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink">
       {/* Background photograph with very slow scale-in */}
       <div className="absolute inset-0">
         <Image
@@ -38,7 +38,7 @@ export function GalleryHero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 sm:px-8 lg:px-10">
         <div className="max-w-3xl">
           <p
             className={cn(
