@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 
-export function HeroScrollCue() {
+export function HeroScrollCue({ targetId = 'chi-siamo' }: { targetId?: string }) {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function HeroScrollCue() {
   }, [])
 
   const scrollToContent = () => {
-    document.querySelector('#chi-siamo')?.scrollIntoView({ behavior: 'smooth' })
+    document.querySelector(`#${targetId}`)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (

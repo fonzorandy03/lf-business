@@ -20,25 +20,25 @@ const pillars = [
 
 export function BusinessIntro() {
   return (
-    <section className="bg-secondary">
+    <section className="business-intro relative overflow-hidden bg-secondary">
       <div className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 sm:py-28 lg:py-36">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <span className="mb-4 flex items-center gap-3 text-[0.7rem] font-medium uppercase tracking-[0.28em] text-gold">
               <span className="h-px w-8 bg-gold" aria-hidden="true" />
-              Chi guida i vostri progetti
+              Il nostro metodo
             </span>
             <p className="font-serif text-3xl font-medium leading-[1.15] text-ink text-balance sm:text-4xl lg:text-[2.75rem]">
-              Integriamo competenze legali e strategiche per accompagnare le imprese nello
-              sviluppo delle attività economiche, in Italia e nel mondo.
+              Non offriamo risposte standard. Costruiamo la strada più sicura per far crescere
+              il vostro progetto, in Italia e nel mondo.
             </p>
           </Reveal>
 
           <div className="lg:col-span-6 lg:col-start-7">
-            <ul className="flex flex-col divide-y divide-border">
+            <ul className="grid gap-4">
               {pillars.map((p, i) => (
-                <Reveal as="li" key={p.n} delay={i * 90} className="flex gap-6 py-7 first:pt-0">
-                  <span className="font-serif text-xl text-gold" aria-hidden="true">
+                <Reveal as="li" key={p.n} delay={i * 90} className="business-pillar group relative flex gap-6 overflow-hidden border border-ink/10 bg-background/60 p-6 sm:p-7">
+                  <span className="font-serif text-xl text-gold transition-transform duration-500 group-hover:-translate-y-1" aria-hidden="true">
                     {p.n}
                   </span>
                   <div>

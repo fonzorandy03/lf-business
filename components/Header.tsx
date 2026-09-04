@@ -70,8 +70,13 @@ export function Header() {
   }, [open])
 
   // Transparent (light text) at the very top of pages that open on a dark hero.
-  const DARK_HERO_ROUTES = ['/', '/sezione-business', '/contattaci', '/galleria']
-  const transparent = !scrolled && !open && DARK_HERO_ROUTES.includes(pathname)
+  const opensOnDarkHero =
+    pathname === '/' ||
+    pathname.startsWith('/blog') ||
+    pathname.startsWith('/sezione-business') ||
+    pathname === '/contattaci' ||
+    pathname === '/galleria'
+  const transparent = !scrolled && !open && opensOnDarkHero
 
   return (
     <header

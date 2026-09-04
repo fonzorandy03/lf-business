@@ -40,7 +40,7 @@ export function ProfessionalsContact() {
   }, [])
 
   return (
-    <section className="border-t border-border bg-secondary/40 py-24 lg:py-32">
+    <section id="professionisti-contatto" className="scroll-mt-20 border-t border-border bg-secondary/40 py-24 lg:py-32">
       <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <div className="mb-14 text-center">
           <span className="mb-4 block text-[0.7rem] font-medium uppercase tracking-[0.28em] text-gold">

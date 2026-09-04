@@ -11,6 +11,11 @@ export const CATEGORIES = [
   "Diritto d'Impresa",
   'Internazionalizzazione',
   'LF Business',
+  'Edilizia e Urbanistica',
+  'Diritto Scolastico',
+  'Bioetica',
+  'Intelligenza Artificiale',
+  'Antitrust',
   'News',
 ] as const
 

@@ -30,7 +30,7 @@ export function GalleryItem({ image, onOpen, order = 0, priority = false }: Gall
       aria-label={`Apri: ${image.title}`}
       style={{ animationDelay: `${Math.min(order, 8) * 70}ms` }}
       className={cn(
-        'gallery-item group relative overflow-hidden rounded-sm bg-ink/5',
+        'gallery-item gallery-editorial-card group relative overflow-hidden bg-ink/5',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold',
         spanClasses[span],
       )}
@@ -47,6 +47,8 @@ export function GalleryItem({ image, onOpen, order = 0, priority = false }: Gall
         className="object-cover transition-transform duration-[600ms] ease-out will-change-transform group-hover:scale-[1.03]"
         priority={priority}
       />
+
+      <span className="gallery-card-shine pointer-events-none absolute inset-0 z-10" aria-hidden="true" />
 
       {/* Hover scrim */}
       <span

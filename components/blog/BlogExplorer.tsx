@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { Search, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { ArticleMeta, Category } from '@/lib/blog-types'
 import { ArticleCard } from './ArticleCard'
 import { Reveal } from '@/components/Reveal'
@@ -11,9 +11,10 @@ const PAGE_SIZE = 6
 interface BlogExplorerProps {
   articles: ArticleMeta[]
   categories: Category[]
+  totalCount?: number
 }
 
-export function BlogExplorer({ articles, categories }: BlogExplorerProps) {
+export function BlogExplorer({ articles, categories, totalCount }: BlogExplorerProps) {
   const [query, setQuery] = useState('')
   const [active, setActive] = useState<Category | 'Tutti'>('Tutti')
   const [page, setPage] = useState(1)
@@ -52,33 +53,43 @@ export function BlogExplorer({ articles, categories }: BlogExplorerProps) {
   return (
     <section aria-label="Elenco articoli">
       {/* Controls */}
-      <div className="flex flex-col gap-6 border-b border-border pb-8">
-        <div className="relative max-w-md">
-          <Search
-            aria-hidden
-            className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-          />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => onSearch(e.target.value)}
-            placeholder="Cerca tra gli articoli..."
-            aria-label="Cerca tra gli articoli"
-            className="w-full rounded-full border border-border bg-card py-3 pl-11 pr-11 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-accent"
-          />
-          {query ? (
-            <button
-              type="button"
-              onClick={() => onSearch('')}
-              aria-label="Cancella ricerca"
-              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          ) : null}
+      <div className="blog-archive-panel relative overflow-hidden border border-ink/10 bg-ink px-6 py-10 text-ivory sm:px-10 sm:py-12 lg:px-14 lg:py-14">
+        <span className="blog-archive-mark" aria-hidden="true">LF</span>
+        <span className="blog-archive-orbit pointer-events-none absolute -right-24 -top-40 h-96 w-96 rounded-full border border-gold/15" aria-hidden="true" />
+        <div className="relative grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <div className="mb-4 flex items-center gap-3">
+              <span className="h-px w-9 bg-gold" aria-hidden="true" />
+              <p className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-gold-soft">Archivio legale</p>
+            </div>
+            <h2 className="max-w-2xl font-serif text-4xl leading-[0.98] md:text-5xl lg:text-6xl">Conoscere oggi.<br /><span className="italic text-gold-soft">Decidere meglio.</span></h2>
+            <p className="mt-6 max-w-xl text-sm leading-relaxed text-ivory/50">Analisi, orientamenti e aggiornamenti per interpretare il diritto e le sue conseguenze concrete.</p>
+          </div>
+          <div className="blog-search-shell relative border border-ivory/15 bg-ivory/[0.045] p-5 backdrop-blur-sm lg:col-span-5 sm:p-6">
+            <div className="mb-4 flex items-center justify-between">
+              <span className="text-[0.62rem] font-medium uppercase tracking-[0.22em] text-gold-soft">Ricerca nell’archivio</span>
+              <span className="font-serif text-3xl text-ivory/25">{String(totalCount ?? filtered.length).padStart(2, '0')}</span>
+            </div>
+            <div className="relative">
+            <Search aria-hidden className="pointer-events-none absolute left-0 top-1/2 h-4 w-4 -translate-y-1/2 text-gold" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => onSearch(e.target.value)}
+              placeholder="Cerca titolo, autore o tema"
+              aria-label="Cerca tra gli articoli"
+              className="blog-search-dark w-full border-0 border-b border-white/20 bg-transparent py-3 pl-7 pr-9 text-sm text-ivory outline-none placeholder:text-ivory/35 focus:border-gold"
+            />
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filtra per categoria">
+        <div className="relative mt-12 border-t border-white/10 pt-7">
+          <div className="mb-4 flex items-center justify-between">
+            <span className="text-[0.6rem] uppercase tracking-[0.22em] text-ivory/35">Filtra per argomento</span>
+            <span className="hidden h-px flex-1 bg-gradient-to-r from-ivory/10 to-transparent sm:ml-6 sm:block" aria-hidden="true" />
+          </div>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtra per categoria">
           {filters.map((cat) => {
             const isActive = active === cat
             return (
@@ -88,16 +99,17 @@ export function BlogExplorer({ articles, categories }: BlogExplorerProps) {
                 onClick={() => selectCategory(cat)}
                 aria-pressed={isActive}
                 className={[
-                  'filter-pill border px-4 py-2 text-xs uppercase tracking-[0.1em]',
+                  'blog-filter relative overflow-hidden rounded-full border px-4 py-2.5 text-[0.64rem] uppercase tracking-[0.13em] transition-all duration-300',
                   isActive
-                    ? 'border-accent bg-accent text-accent-foreground'
-                    : 'border-border bg-transparent text-muted-foreground hover:border-accent/50 hover:text-foreground',
+                    ? 'is-active border-gold text-ink'
+                    : 'border-ivory/15 text-ivory/55 hover:border-gold/50 hover:text-ivory',
                 ].join(' ')}
               >
                 {cat}
               </button>
             )
           })}
+          </div>
         </div>
       </div>
 

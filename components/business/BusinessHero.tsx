@@ -2,10 +2,15 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import type { MouseEvent } from 'react'
 import { cn } from '@/lib/utils'
 import { CTAButton } from '@/components/CTAButton'
 
-const facets = ['International Business', 'Legal Advisory', 'Global Trade', 'Energy & Commodities']
+const facets = [
+  ['01', 'Strategia legale'],
+  ['02', 'Accesso ai mercati'],
+  ['03', 'Operazioni internazionali'],
+] as const
 
 export function BusinessHero() {
   const [mounted, setMounted] = useState(false)
@@ -21,8 +26,47 @@ export function BusinessHero() {
       mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
     )
 
+  const scrollToAreas = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+
+    const target = document.getElementById('aree')
+    if (!target) return
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const headerOffset = 72
+    const start = window.scrollY
+    const destination = target.getBoundingClientRect().top + start - headerOffset
+
+    if (reduceMotion) {
+      window.scrollTo({ top: destination })
+      window.history.replaceState(null, '', '#aree')
+      return
+    }
+
+    const distance = destination - start
+    const duration = 1250
+    const startedAt = performance.now()
+    const easeInOutQuint = (progress: number) =>
+      progress < 0.5
+        ? 16 * progress ** 5
+        : 1 - (-2 * progress + 2) ** 5 / 2
+
+    const animate = (now: number) => {
+      const progress = Math.min((now - startedAt) / duration, 1)
+      window.scrollTo({ top: start + distance * easeInOutQuint(progress) })
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      } else {
+        window.history.replaceState(null, '', '#aree')
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }
+
   return (
-    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink">
+    <section className="business-hero relative isolate flex min-h-[100svh] items-start overflow-hidden bg-ink lg:items-center">
       {/* Background image with slow scale-in */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -37,28 +81,30 @@ export function BusinessHero() {
           )}
         />
         {/* Refined overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/65 to-ink/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/15" />
+        <div className="business-hero-sweep absolute inset-0" aria-hidden="true" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1400px] px-6 pb-20 pt-40 sm:px-10 sm:pb-28 lg:pb-36">
-        <div className="max-w-3xl">
+      <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-6 pb-20 pt-32 sm:px-10 sm:pt-40 lg:grid-cols-[1fr_22rem] lg:items-end lg:pb-28">
+        <div className="max-w-4xl">
           <div className={cn('flex items-center gap-3', step(0))}>
             <span className="h-px w-10 bg-gold" aria-hidden="true" />
             <span className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-gold-soft">
-              Sezione Business
+              Legal &amp; Business Advisory
             </span>
           </div>
 
           <h1
             className={cn(
               'mt-6 font-serif font-medium leading-[0.95] text-ivory text-balance',
-              'text-6xl sm:text-7xl lg:text-8xl',
+              'text-5xl sm:text-7xl lg:text-8xl',
               step(1),
             )}
             style={{ transitionDelay: mounted ? '120ms' : '0ms' }}
           >
-            LF Business
+            Oltre i confini.<br />
+            <span className="italic text-gold-soft">Dentro ogni opportunità.</span>
           </h1>
 
           <p
@@ -68,7 +114,7 @@ export function BusinessHero() {
             )}
             style={{ transitionDelay: mounted ? '220ms' : '0ms' }}
           >
-            &ldquo;Guiding Your Business Worldwide&rdquo;
+            LF Business — Guiding Your Business Worldwide
           </p>
 
           <p
@@ -78,37 +124,33 @@ export function BusinessHero() {
             )}
             style={{ transitionDelay: mounted ? '320ms' : '0ms' }}
           >
-            Competenze legali e strategiche al servizio delle imprese: contrattualistica
-            internazionale, commercio globale, energia e materie prime, con un approccio
-            sartoriale e una visione realmente internazionale.
+            Trasformiamo progetti complessi in percorsi chiari e tutelati. Affianchiamo imprese
+            e investitori nelle decisioni strategiche, nelle negoziazioni e nello sviluppo sui
+            mercati internazionali.
           </p>
 
           <div
             className={cn('mt-10 flex flex-wrap items-center gap-4', step(4))}
             style={{ transitionDelay: mounted ? '440ms' : '0ms' }}
           >
-            <CTAButton href="#aree" variant="primary">
-              Esplora le aree
+            <CTAButton href="#aree" variant="primary" onClick={scrollToAreas}>
+              Scopri come possiamo aiutarti
             </CTAButton>
             <CTAButton href="/contattaci" variant="outline-light">
-              Contattaci
+              Parliamo del tuo progetto
             </CTAButton>
           </div>
 
-          {/* Facet row */}
-          <ul
-            className={cn(
-              'mt-14 flex flex-wrap gap-x-6 gap-y-3 border-t border-ivory/15 pt-6',
-              step(5),
-            )}
-            style={{ transitionDelay: mounted ? '560ms' : '0ms' }}
-          >
-            {facets.map((f) => (
-              <li
-                key={f}
-                className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-ivory/55"
-              >
-                {f}
+        </div>
+
+        <div className={cn('business-capabilities border border-white/15 bg-ink/45 p-6 backdrop-blur-md', step(5))} style={{ transitionDelay: mounted ? '560ms' : '0ms' }}>
+          <p className="mb-6 text-[0.62rem] uppercase tracking-[0.25em] text-gold-soft">Un unico interlocutore</p>
+          <ul className="divide-y divide-white/10">
+            {facets.map(([n, label]) => (
+              <li key={n} className="group flex items-center gap-5 py-5 first:pt-0 last:pb-0">
+                <span className="font-serif text-xl text-gold">{n}</span>
+                <span className="text-sm tracking-wide text-ivory/75 transition-colors group-hover:text-ivory">{label}</span>
+                <span className="ml-auto text-gold/50 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
               </li>
             ))}
           </ul>

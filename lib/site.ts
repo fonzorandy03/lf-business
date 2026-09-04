@@ -28,10 +28,8 @@ export const ADDRESS = {
 } as const
 
 export const SOCIAL = [
-  { label: 'Twitter', href: '#' },
-  { label: 'Facebook', href: '#' },
-  { label: 'Instagram', href: '#' },
-  { label: 'TikTok', href: '#' },
+  { label: 'Facebook', href: 'https://www.facebook.com/www.avvocatibf.facebok.eu/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/avvferrara/' },
 ] as const
 
 export const SITE_NAME = 'LF Business'

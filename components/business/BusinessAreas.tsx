@@ -3,45 +3,32 @@ import { AreaCard } from '@/components/business/AreaCard'
 import { BUSINESS_AREAS } from '@/lib/business'
 
 export function BusinessAreas() {
-  const [feature, second, third] = BUSINESS_AREAS
-
   return (
-    <section id="aree" className="scroll-mt-24 bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 sm:py-28 lg:py-40">
-        {/* Section header */}
-        <Reveal className="flex flex-col gap-6 border-b border-border pb-12 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
+    <section id="aree" className="business-areas relative scroll-mt-24 overflow-hidden bg-ink text-ivory">
+      <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden="true" />
+      <div className="mx-auto max-w-[1500px] px-6 py-24 sm:px-10 sm:py-28 lg:py-36">
+        <Reveal className="grid gap-8 border-b border-ivory/15 pb-10 lg:grid-cols-12 lg:items-end">
+          <div className="max-w-3xl lg:col-span-8">
             <span className="mb-4 flex items-center gap-3 text-[0.7rem] font-medium uppercase tracking-[0.28em] text-gold">
               <span className="h-px w-8 bg-gold" aria-hidden="true" />
-              Aree di attività
+              Expertise
             </span>
-            <h2 className="font-serif text-4xl font-medium leading-[1.05] text-ink text-balance sm:text-5xl lg:text-6xl">
-              Esplora le aree di attività
+            <h2 className="font-serif text-4xl font-medium leading-[1.02] text-ivory text-balance sm:text-5xl lg:text-7xl">
+              Tre aree. Una visione integrata.
             </h2>
           </div>
-          <p className="max-w-md text-base leading-relaxed text-stone lg:pb-2">
-            Competenze legali e strategiche per imprese, commercio e mercati internazionali.
+          <p className="max-w-md text-base leading-relaxed text-ivory/55 lg:col-span-4 lg:pb-2">
+            Competenze legali e strategiche coordinate per tutelare le operazioni, aprire nuovi
+            mercati e sostenere decisioni imprenditoriali consapevoli.
           </p>
         </Reveal>
 
-        {/* Editorial grid */}
-        <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">
-          {/* Feature card — large, left */}
-          <Reveal className="lg:col-span-7 lg:row-span-2">
-            <AreaCard
-              area={feature}
-              layout="feature"
-              sizes="(max-width: 1024px) 100vw, 58vw"
-            />
-          </Reveal>
-
-          {/* Two medium cards, right column */}
-          <Reveal className="lg:col-span-5" delay={80}>
-            <AreaCard area={second} sizes="(max-width: 1024px) 100vw, 42vw" />
-          </Reveal>
-          <Reveal className="lg:col-span-5" delay={160}>
-            <AreaCard area={third} sizes="(max-width: 1024px) 100vw, 42vw" />
-          </Reveal>
+        <div className="relative -mt-px grid grid-cols-1 gap-px overflow-hidden border-x border-b border-ivory/15 bg-ivory/15 lg:grid-cols-3">
+          {BUSINESS_AREAS.map((area, index) => (
+            <Reveal key={area.number} delay={index * 100}>
+              <AreaCard area={area} sizes="(max-width: 1024px) 100vw, 33vw" />
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

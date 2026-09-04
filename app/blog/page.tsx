@@ -34,7 +34,7 @@ export default function BlogPage() {
       <main>
         <BlogHero count={all.length} />
 
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+        <div className="blog-canvas mx-auto max-w-6xl px-6 py-16 md:py-24">
           {featured ? (
             <Reveal className="mb-20">
               <FeaturedCard article={toMeta(featured)} />
@@ -42,7 +42,9 @@ export default function BlogPage() {
           ) : null}
 
           {all.length > 0 ? (
-            <BlogExplorer articles={listArticles} categories={categories} />
+            <Reveal>
+              <BlogExplorer articles={listArticles} categories={categories} totalCount={all.length} />
+            </Reveal>
           ) : (
             <p className="py-24 text-center text-muted-foreground">
               Non ci sono ancora articoli pubblicati. Torna presto a trovarci.
