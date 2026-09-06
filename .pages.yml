@@ -24,9 +24,10 @@ content:
     type: collection
     path: content/blog
     format: yaml-frontmatter
-    filename:
-      template: "{slug}.mdx"
-      field: create
+    # Il nome del file viene generato automaticamente dal titolo.
+    # Non mostriamo il campo filename: lasciandolo vuoto Pages CMS
+    # tentava di creare un file senza estensione.
+    filename: "{slug}.mdx"
     exclude: [README.md, _template.mdx]
     subfolders: false
     view:
@@ -118,3 +119,4 @@ content:
           switcher: true
           extensions: [jpg, jpeg, png, webp, avif]
           rename: safe
+
