@@ -1,4 +1,4 @@
-name: Build and deploy to Plesk
+name: Build website for Plesk
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
 
     steps:
       - name: Checkout repository
@@ -33,15 +33,17 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: Deploy static build to Plesk
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.PLESK_FTP_SERVER }}
-          username: ${{ secrets.PLESK_FTP_USERNAME }}
-          password: ${{ secrets.PLESK_FTP_PASSWORD }}
-          protocol: ${{ secrets.PLESK_FTP_PROTOCOL }}
-          port: ${{ secrets.PLESK_FTP_PORT }}
-          local-dir: ./out/
-          server-dir: ${{ secrets.PLESK_FTP_DIRECTORY }}
-          dangerous-clean-slate: false
-
+      - name: Publish compiled website to plesk branch
+        working-directory: out
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          touch .nojekyll
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit -m "Deploy ${GITHUB_SHA}"
+          git branch -M plesk
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin plesk
