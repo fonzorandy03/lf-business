@@ -81,18 +81,21 @@ export function Header() {
     currentPath === '/galleria' ||
     currentPath === '/curriculum'
   const transparent = !scrolled && !open && opensOnDarkHero
+  const lightHeader = transparent || open
 
   return (
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500',
-        transparent
+        open
+          ? 'border-b border-ivory/10 bg-ink py-3'
+          : transparent
           ? 'bg-transparent py-5'
           : 'border-b border-border bg-background/90 py-3 backdrop-blur-md',
       )}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center px-6 lg:grid-cols-[auto_1fr_auto] lg:px-10">
-        <Monogram light={transparent} />
+        <Monogram light={lightHeader} />
 
         {/* Desktop nav */}
         <nav aria-label="Navigazione principale" className="hidden justify-self-center lg:block">
@@ -138,7 +141,7 @@ export function Header() {
           aria-label={open ? 'Chiudi menu' : 'Apri menu'}
           className={cn(
             'flex h-10 w-10 items-center justify-center transition-colors lg:hidden',
-            transparent ? 'text-ivory' : 'text-ink',
+            lightHeader ? 'text-ivory' : 'text-ink',
           )}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -149,32 +152,64 @@ export function Header() {
       <div
         id="mobile-menu"
         className={cn(
-          'overflow-hidden bg-ink transition-[max-height,opacity] duration-500 lg:hidden',
-          open ? 'max-h-[calc(100dvh-88px)] overflow-y-auto overscroll-contain opacity-100' : 'max-h-0 invisible opacity-0',
+          'fixed inset-x-0 bottom-0 top-[72px] overflow-y-auto overscroll-contain bg-ink transition-[opacity,transform,visibility] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden',
+          open
+            ? 'visible translate-y-0 opacity-100'
+            : 'invisible pointer-events-none -translate-y-3 opacity-0',
         )}
       >
-        <nav aria-label="Navigazione mobile" className="px-6 py-6">
-          <ul className="flex flex-col divide-y divide-ivory/10">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
+        <nav aria-label="Navigazione mobile" className="mx-auto flex min-h-full max-w-lg flex-col px-6 pb-8 pt-7 sm:px-10">
+          <div className="mb-4 flex items-center gap-3 text-[0.58rem] font-medium uppercase tracking-[0.32em] text-gold-soft/80">
+            <span className="h-px w-8 bg-gold/70" />
+            Navigazione
+          </div>
+          <ul className="flex flex-col border-t border-ivory/10">
+            {NAV_LINKS.map((link, index) => {
+              const active = currentPath === link.href.replace(/\/+$/, '')
+              return (
+              <li
+                key={link.href}
+                className={cn(
+                  'transition-[opacity,transform] duration-500 ease-out',
+                  open ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0',
+                )}
+                style={{ transitionDelay: open ? `${80 + index * 45}ms` : '0ms' }}
+              >
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between py-4 font-serif text-2xl text-ivory transition-colors hover:text-gold"
+                  aria-current={active ? 'page' : undefined}
+                  className={cn(
+                    'group flex min-h-14 items-center gap-4 border-b border-ivory/10 py-3.5 text-ivory transition-colors hover:text-gold',
+                    active && 'text-gold-soft',
+                  )}
                 >
-                  {link.label}
-                  <span aria-hidden="true" className="text-gold/60">
+                  <span className="w-5 text-[0.55rem] font-medium tracking-[0.16em] text-gold/65">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="flex-1 font-serif text-[clamp(1.35rem,6vw,1.7rem)] leading-none">
+                    {link.label}
+                  </span>
+                  <span aria-hidden="true" className="translate-x-0 text-lg text-gold/65 transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
                 </Link>
               </li>
-            ))}
+            )})}
           </ul>
-          <div className="mt-6 flex justify-end">
-            <LanguageSwitcher light />
+          <div className="mt-auto flex items-end justify-between gap-6 pt-7">
+            <div>
+              <p className="text-[0.55rem] uppercase tracking-[0.28em] text-ivory/35">Studio legale</p>
+              <p className="mt-1 font-serif text-sm text-ivory/65">Sarno · Napoli</p>
+            </div>
+            <div className="flex flex-col items-end gap-2">
+              <span className="text-[0.5rem] uppercase tracking-[0.25em] text-ivory/35">Lingua</span>
+              <LanguageSwitcher light />
+            </div>
           </div>
         </nav>
       </div>
     </header>
   )
 }
+
