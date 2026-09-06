@@ -8,6 +8,7 @@ __v0_jsx-dev-runtime.ts
 
 # Environment variables
 .env*.local
+.translation-cache-en.json
 
 # Common ignores
 node_modules

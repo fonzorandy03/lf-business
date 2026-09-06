@@ -4,7 +4,7 @@ import { HeroScrollCue } from './HeroScrollCue'
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink">
+    <section className="home-hero relative flex min-h-[100svh] items-center overflow-hidden bg-ink">
       {/* Background */}
       <div className="absolute inset-0">
         <Image
@@ -21,7 +21,7 @@ export function Hero() {
         <div className="hero-light-sweep absolute inset-0" aria-hidden="true" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 pb-20 lg:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-28 pb-36 sm:pt-32 sm:pb-32 lg:px-10">
         <div className="max-w-3xl">
           <p className="hero-reveal hero-delay-1 mb-6 flex items-center gap-4 text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
             <span className="h-px w-10 bg-gold" aria-hidden="true" />

@@ -76,7 +76,7 @@ export default async function ArticlePage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
         {/* Hero */}
-        <header className="relative isolate flex min-h-[60vh] items-end overflow-hidden pt-32">
+        <header className="relative isolate flex min-h-[68vh] items-end overflow-hidden bg-ink pt-32">
           <div className="absolute inset-0 -z-10">
             <Image
               src={article.coverImage || '/images/blog/placeholder.png'}
@@ -84,29 +84,32 @@ export default async function ArticlePage({
               fill
               priority
               sizes="100vw"
-              className="object-cover"
+              className="hero-cinematic-image object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/55 to-foreground/30" />
+            <div className="hero-cinematic-overlay absolute inset-0 bg-ink/35" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/55" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/35 to-ink/20" />
+            <div className="hero-light-sweep absolute inset-0 opacity-40" aria-hidden="true" />
           </div>
 
-          <div className="mx-auto w-full max-w-4xl px-6 pb-14 md:pb-20">
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-14 md:pb-20">
             <Reveal>
-              <div className="mb-5 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.14em] text-background/80">
-                <span className="rounded-full border border-background/30 px-3 py-1 text-background">
+              <div className="mb-6 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.16em] text-ivory/75">
+                <span className="rounded-full border border-gold/50 bg-ink/35 px-3 py-1 text-gold-soft backdrop-blur-sm">
                   {article.category}
                 </span>
                 {article.dateLabel ? <span>{article.dateLabel}</span> : null}
-                <span aria-hidden className="h-1 w-1 rounded-full bg-background/50" />
+                <span aria-hidden className="h-1 w-1 rounded-full bg-gold/70" />
                 <span>{article.readingTime} min di lettura</span>
               </div>
             </Reveal>
             <Reveal delay={80}>
-              <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] tracking-tight text-background text-balance md:text-6xl">
+              <h1 className="max-w-5xl font-serif text-[clamp(2.6rem,5vw,4.8rem)] font-medium leading-[1.04] tracking-[-0.025em] text-ivory text-balance [text-shadow:0_3px_28px_rgba(0,0,0,0.65)]">
                 {article.title}
               </h1>
             </Reveal>
             <Reveal delay={160}>
-              <p className="mt-6 text-sm text-background/80">di {article.author}</p>
+              <p className="mt-7 text-sm tracking-wide text-gold-soft">di {article.author}</p>
             </Reveal>
           </div>
         </header>

@@ -4,7 +4,6 @@ import { Footer } from '@/components/Footer'
 import { ContactHero } from '@/components/contact/ContactHero'
 import { ProfessionalsContact } from '@/components/contact/ProfessionalsContact'
 import { DirectContactActions } from '@/components/contact/DirectContactActions'
-import { FormSection } from '@/components/contact/FormSection'
 import { StudioMapSection } from '@/components/contact/StudioMapSection'
 import { ContactCTA } from '@/components/contact/ContactCTA'
 import { FloatingContact } from '@/components/contact/FloatingContact'
@@ -29,7 +28,6 @@ export default function ContattaciPage() {
         <ContactHero />
         <ProfessionalsContact />
         <DirectContactActions />
-        <FormSection />
         <StudioMapSection />
         <ContactCTA />
         <FloatingContact />

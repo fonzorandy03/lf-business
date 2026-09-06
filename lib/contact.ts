@@ -8,25 +8,43 @@ export type ContactPayload = {
 
 export type ContactResult = { ok: true } | { ok: false; error: string }
 
-/**
- * Invio della richiesta di contatto.
- *
- * ⚠️ PLACEHOLDER: al momento non è configurato alcun servizio di invio email/backend.
- * Questa funzione NON mostra falsi successi di invio verso un server reale:
- * si limita a registrare la richiesta lato client e a restituire un esito.
- *
- * Per abilitare l'invio reale, sostituire il corpo con una chiamata a una
- * Route Handler / Server Action (es. `await fetch('/api/contact', { ... })`)
- * collegata a un provider email (Resend, ecc.). L'interfaccia resta invariata.
- */
 export async function sendContactRequest(payload: ContactPayload): Promise<ContactResult> {
-  // Simula la latenza di rete per uno stato di caricamento realistico.
-  await new Promise((resolve) => setTimeout(resolve, 900))
+  const controller = new AbortController()
+  const timeout = window.setTimeout(() => controller.abort(), 15000)
 
-  if (typeof window !== 'undefined') {
-    // Traccia locale finché il backend non è configurato.
-    console.log('[v0] Richiesta di contatto ricevuta (placeholder, nessun invio reale):', payload)
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/luigiferraraavv@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        Nome: payload.name,
+        Email: payload.email,
+        Telefono: payload.phone || 'Non indicato',
+        Oggetto: payload.subject || 'Richiesta dal sito LF Business',
+        Messaggio: payload.message,
+        _subject: `Nuova richiesta dal sito — ${payload.subject || payload.name}`,
+        _template: 'table',
+        _replyto: payload.email,
+        _url: typeof window !== 'undefined' ? window.location.href : 'https://avvocatibf.eu/contattaci',
+        _honey: '',
+      }),
+      signal: controller.signal,
+    })
+
+    const result = (await response.json().catch(() => null)) as { success?: string | boolean } | null
+    const accepted = result?.success === true || result?.success === 'true'
+
+    if (!response.ok || !accepted) {
+      return { ok: false, error: 'Il servizio email non ha accettato la richiesta.' }
+    }
+
+    return { ok: true }
+  } catch {
+    return { ok: false, error: 'Impossibile contattare il servizio email.' }
+  } finally {
+    window.clearTimeout(timeout)
   }
-
-  return { ok: true }
 }

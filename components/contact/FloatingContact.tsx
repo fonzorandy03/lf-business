@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { MessageCircle, Phone, X } from 'lucide-react'
 import { WhatsAppIcon } from './WhatsAppIcon'
 import { cn } from '@/lib/utils'
-import { CONTACT, whatsappHref } from '@/lib/site'
+import { STUDIO_CONTACT, whatsappHref } from '@/lib/site'
 
 export function FloatingContact() {
   const [open, setOpen] = useState(false)
@@ -54,8 +54,8 @@ export function FloatingContact() {
           </span>
         </a>
         <a
-          href={CONTACT.phoneHref}
-          aria-label={`Chiama lo Studio al numero ${CONTACT.phone}`}
+          href={STUDIO_CONTACT.phoneHref}
+          aria-label={`Chiama lo Studio di Sarno al numero ${STUDIO_CONTACT.phone}`}
           className="group inline-flex items-center gap-2.5 rounded-full bg-ivory py-2.5 pl-4 pr-3 text-xs font-medium uppercase tracking-[0.14em] text-ink shadow-lg ring-1 ring-border transition-transform duration-200 hover:-translate-y-0.5"
         >
           Chiama

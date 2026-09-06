@@ -1,10 +1,9 @@
-import Image from 'next/image'
-import { SectionHeading } from './SectionHeading'
 import { CTAButton } from './CTAButton'
 import { Reveal } from './Reveal'
 
 const AREAS = [
   {
+    number: '01',
     title: 'Internazionalizzazione',
     body: [
       "LF Business assiste le imprese nei processi di internazionalizzazione, con particolare riferimento ai mercati dell'Africa Centrale e della Regione dei Grandi Laghi, operando in Paesi quali Gabon e Guinea Conakry.",
@@ -12,6 +11,7 @@ const AREAS = [
     ],
   },
   {
+    number: '02',
     title: 'Appalti pubblici',
     body: [
       'Il ricorso al TAR è un passaggio delicato, utilizzato per contestare esclusioni da gare, irregolarità procedurali, o assegnazioni illegittime. Diverse le strategie legali efficaci poste a base di numerose impugnative organizzate sulla base di argomentazioni solide in tempi stretti, poiché i termini per proporre ricorso sono rigorosamente limitati.',
@@ -19,6 +19,7 @@ const AREAS = [
     ],
   },
   {
+    number: '03',
     title: 'Ricorsi al TAR e Consiglio di Stato',
     body: [
       "I ricorsi al TAR rappresentano il primo livello di giurisdizione, utilizzato per contestare atti amministrativi lesivi di diritti o interessi legittimi. In caso di esito sfavorevole, l'avvocato Luigi Ferrara ha la competenza necessaria per presentare appelli al Consiglio di Stato, il più alto organo della giustizia amministrativa in Italia, ottenendo revisioni o annullamenti delle sentenze.",
@@ -30,50 +31,48 @@ const AREAS = [
 export function PracticeAreasSection() {
   return (
     <section className="relative overflow-hidden bg-ink py-24 lg:py-32">
-      {/* Subtle background texture */}
-      <div className="absolute inset-0 opacity-40">
-        <Image
-          src="/images/dark-texture.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
-      <div className="absolute inset-0 bg-ink/60" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(191,151,84,0.12),transparent_30%),radial-gradient(circle_at_88%_85%,rgba(191,151,84,0.07),transparent_26%)]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Aree di attività"
-            title="Competenze giuridiche al servizio delle imprese"
-            tone="light"
-            align="center"
-          />
+        <Reveal className="grid gap-8 border-b border-white/10 pb-12 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <p className="mb-5 flex items-center gap-4 text-[0.68rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
+              <span className="h-px w-10 bg-gold" aria-hidden="true" />
+              Aree di attività
+            </p>
+            <h2 className="max-w-3xl font-serif text-4xl font-medium leading-[1.08] text-ivory text-balance sm:text-5xl lg:text-6xl">
+              Competenze che trasformano
+              <span className="italic text-gold-soft"> complessità in direzione.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base leading-relaxed text-ivory/55 lg:col-span-4 lg:col-start-9">
+            Tutela legale, strategia e visione internazionale coordinate in un unico percorso.
+          </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px overflow-hidden border border-ivory/10 bg-ivory/10 lg:mt-20 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-3">
           {AREAS.map((area, i) => (
             <Reveal
               key={area.title}
-              delay={i * 120}
-              className="group flex flex-col bg-ink p-8 transition-colors duration-500 hover:bg-[oklch(0.22_0.006_265)] lg:p-10"
+              delay={i * 110}
             >
-              <span className="mb-6 h-px w-10 bg-gold transition-all duration-500 group-hover:w-16" />
-              <h3 className="font-serif text-2xl font-medium leading-tight text-ivory text-balance lg:text-[1.7rem]">
-                {area.title}
-              </h3>
-              <div className="mt-6 flex-1 space-y-4 text-[0.92rem] leading-relaxed text-ivory/65">
-                {area.body.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
-              <div className="mt-8">
-                <CTAButton href="/contattaci" variant="outline-light">
-                  Contattaci
-                </CTAButton>
-              </div>
+              <article className="group relative flex min-h-[34rem] flex-col overflow-hidden border border-white/12 bg-white/[0.035] p-7 transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-gold/45 hover:bg-white/[0.055] hover:shadow-[inset_0_0_70px_rgba(191,151,84,0.075),0_25px_65px_-48px_rgba(191,151,84,0.5)] sm:p-9">
+                <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-gold/0 blur-3xl transition-all duration-1000 group-hover:bg-gold/12" aria-hidden="true" />
+                <div className="absolute inset-x-0 top-0 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-gold to-transparent transition-transform duration-1000 group-hover:scale-x-100" />
+                <div className="relative flex items-start justify-between">
+                  <span className="font-serif text-5xl text-white/12 transition-colors duration-700 group-hover:text-gold/50">{area.number}</span>
+                  <span className="mt-3 h-2 w-2 rotate-45 border border-gold/60 transition-[transform,background-color] duration-700 group-hover:rotate-[135deg] group-hover:bg-gold" aria-hidden="true" />
+                </div>
+                <span className="relative mb-7 mt-10 h-px w-10 bg-gold transition-all duration-700 group-hover:w-20" />
+                <h3 className="relative font-serif text-3xl font-medium leading-tight text-ivory text-balance">{area.title}</h3>
+                <div className="relative mt-6 flex-1 space-y-4 text-[0.9rem] leading-[1.72] text-ivory/58 transition-colors duration-700 group-hover:text-ivory/76">
+                  {area.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
+                <div className="relative mt-8">
+                  <CTAButton href="/contattaci" variant="outline-light">Parliamone</CTAButton>
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>

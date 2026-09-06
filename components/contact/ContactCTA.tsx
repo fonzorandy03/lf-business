@@ -1,7 +1,7 @@
 import { Phone } from 'lucide-react'
 import { WhatsAppIcon } from './WhatsAppIcon'
 import { Reveal } from '@/components/Reveal'
-import { CONTACT, whatsappHref } from '@/lib/site'
+import { STUDIO_CONTACT, whatsappHref } from '@/lib/site'
 
 export function ContactCTA() {
   return (
@@ -40,8 +40,8 @@ export function ContactCTA() {
             Scrivici su WhatsApp
           </a>
           <a
-            href={CONTACT.phoneHref}
-            aria-label={`Chiama lo Studio al numero ${CONTACT.phone}`}
+            href={STUDIO_CONTACT.phoneHref}
+            aria-label={`Chiama lo Studio di Sarno al numero ${STUDIO_CONTACT.phone}`}
             className="btn-luxury btn-luxury-outline-light group inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           >
             <Phone className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5" aria-hidden="true" />

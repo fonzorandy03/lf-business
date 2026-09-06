@@ -8,6 +8,8 @@ import { Reveal } from '@/components/Reveal'
 import { CTAButton } from '@/components/CTAButton'
 import { HeroScrollCue } from '@/components/HeroScrollCue'
 import { MarketWidgets } from '@/components/business/MarketWidgets'
+import { OilGasOperations } from '@/components/business/OilGasOperations'
+import { InternationalizationAfrica } from '@/components/business/InternationalizationAfrica'
 import { BUSINESS_AREAS, getBusinessArea } from '@/lib/business'
 
 export function generateStaticParams() {
@@ -46,6 +48,7 @@ export default async function AreaDetailPage({
   const next = BUSINESS_AREAS[(index + 1) % BUSINESS_AREAS.length]
   const isMarkets = area.slug === 'mercati-live'
   const isOil = area.slug === 'prodotti-petroliferi'
+  const isInternationalization = area.slug === 'internazionalizzazione'
   const journey = isMarkets ? [
     { number: '01', title: 'Osservare', text: 'Segui Brent e WTI attraverso quotazioni, variazioni e andamento nei diversi intervalli temporali.' },
     { number: '02', title: 'Interpretare', text: 'Leggi i movimenti del petrolio nel contesto delle dinamiche commerciali e degli obiettivi dell’impresa.' },
@@ -114,11 +117,11 @@ export default async function AreaDetailPage({
               <p className="mt-4 font-serif text-2xl leading-tight text-ivory">{isMarkets ? 'Dati e competenze per leggere mercati in continuo movimento.' : isOil ? 'Rigore contrattuale per operazioni energetiche internazionali.' : 'Diritto, strategia e relazioni per operare oltre i confini.'}</p>
             </div>
           </div>
-          <HeroScrollCue targetId="area-overview" />
+          <HeroScrollCue targetId={isOil ? 'oil-gas-operations' : isInternationalization ? 'africa-projects' : 'area-overview'} />
         </section>
 
         {/* Content */}
-        <section id="area-overview" className="relative scroll-mt-20 overflow-hidden bg-background">
+        {!isOil && !isInternationalization && <section id="area-overview" className="relative scroll-mt-20 overflow-hidden bg-background">
           <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full border border-gold/10" aria-hidden="true" />
           <div className="relative mx-auto max-w-[1400px] px-6 py-24 sm:px-10 sm:py-28 lg:py-36">
             <div className="grid gap-14 lg:grid-cols-12 lg:gap-20">
@@ -155,7 +158,11 @@ export default async function AreaDetailPage({
               </div>
             </div>
           </div>
-        </section>
+        </section>}
+
+        {isOil && <OilGasOperations />}
+
+        {isInternationalization && <InternationalizationAfrica />}
 
         {isMarkets && <MarketWidgets />}
 

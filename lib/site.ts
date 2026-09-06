@@ -2,6 +2,7 @@ export const NAV_LINKS = [
   { label: 'Home Page', href: '/' },
   { label: 'Blog', href: '/blog' },
   { label: 'Sezione Business', href: '/sezione-business' },
+  { label: 'Specializzazioni legali', href: '/specializzazioni-legali' },
   { label: 'Contattaci', href: '/contattaci' },
   { label: 'Galleria', href: '/galleria' },
   { label: 'Curriculum', href: '/curriculum' },
@@ -18,6 +19,24 @@ export const CONTACT = {
 export const whatsappHref = `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
   CONTACT.whatsappMessage,
 )}`
+
+export const NUNZIA_CONTACT = {
+  name: 'Avv. Nunzia Robustelli',
+  phone: '+39 328 245 8479',
+  phoneHref: 'tel:+393282458479',
+  whatsappNumber: '393282458479',
+  whatsappMessage: 'Buongiorno Avv. Robustelli, vorrei richiedere informazioni.',
+} as const
+
+export const nunziaWhatsappHref = `https://wa.me/${NUNZIA_CONTACT.whatsappNumber}?text=${encodeURIComponent(
+  NUNZIA_CONTACT.whatsappMessage,
+)}`
+
+export const STUDIO_CONTACT = {
+  name: 'Studio di Sarno',
+  phone: '081 1910 6560',
+  phoneHref: 'tel:+3908119106560',
+} as const
 
 export const ADDRESS = {
   street: 'Via Onofrio Tortora 17/19',

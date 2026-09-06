@@ -9,7 +9,7 @@ interface CTAButtonProps extends ComponentProps<typeof Link> {
 }
 
 const base =
-  'btn-luxury group inline-flex items-center justify-center gap-3 px-8 py-3.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2'
+  'btn-luxury group inline-flex max-w-full items-center justify-center gap-3 px-6 py-3.5 text-center text-[0.68rem] font-semibold uppercase tracking-[0.16em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 sm:px-8 sm:text-[0.7rem] sm:tracking-[0.2em]'
 
 const variants: Record<Variant, string> = {
   primary:

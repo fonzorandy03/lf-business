@@ -212,7 +212,7 @@ export function ContactForm() {
           {status === 'success' && (
             <p className="flex items-center gap-2 text-foreground">
               <CheckCircle2 className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-              Grazie: la tua richiesta è stata registrata. Ti ricontatteremo al più presto.
+              Grazie: la tua richiesta è stata inviata allo Studio. Ti ricontatteremo al più presto.
             </p>
           )}
           {status === 'error' && (

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { NAV_LINKS } from '@/lib/site'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 function Monogram({ light }: { light: boolean }) {
   return (
@@ -52,6 +53,7 @@ function Monogram({ light }: { light: boolean }) {
 
 export function Header() {
   const pathname = usePathname()
+  const currentPath = pathname !== '/' ? pathname.replace(/\/+$/, '') : pathname
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -71,11 +73,13 @@ export function Header() {
 
   // Transparent (light text) at the very top of pages that open on a dark hero.
   const opensOnDarkHero =
-    pathname === '/' ||
-    pathname.startsWith('/blog') ||
-    pathname.startsWith('/sezione-business') ||
-    pathname === '/contattaci' ||
-    pathname === '/galleria'
+    currentPath === '/' ||
+    currentPath.startsWith('/blog') ||
+    currentPath.startsWith('/sezione-business') ||
+    currentPath.startsWith('/specializzazioni-legali') ||
+    currentPath === '/contattaci' ||
+    currentPath === '/galleria' ||
+    currentPath === '/curriculum'
   const transparent = !scrolled && !open && opensOnDarkHero
 
   return (
@@ -87,21 +91,21 @@ export function Header() {
           : 'border-b border-border bg-background/90 py-3 backdrop-blur-md',
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center px-6 lg:grid-cols-[auto_1fr_auto] lg:px-10">
         <Monogram light={transparent} />
 
         {/* Desktop nav */}
-        <nav aria-label="Navigazione principale" className="hidden lg:block">
-          <ul className="flex items-center gap-8">
+        <nav aria-label="Navigazione principale" className="hidden justify-self-center lg:block">
+          <ul className="flex items-center gap-4 xl:gap-6">
             {NAV_LINKS.map((link) => {
-              const active = pathname === link.href
+              const active = currentPath === link.href.replace(/\/+$/, '')
               return (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     aria-current={active ? 'page' : undefined}
                     className={cn(
-                      'group relative text-[0.72rem] font-medium uppercase tracking-[0.16em] transition-colors duration-300',
+                      'group relative whitespace-nowrap text-[0.67rem] font-medium uppercase tracking-[0.13em] transition-colors duration-300 xl:text-[0.7rem] xl:tracking-[0.15em]',
                       transparent
                         ? 'text-ivory/80 hover:text-ivory'
                         : 'text-ink/70 hover:text-ink',
@@ -120,6 +124,10 @@ export function Header() {
             })}
           </ul>
         </nav>
+
+        <div className="hidden justify-self-end lg:block">
+          <LanguageSwitcher light={transparent} />
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -142,7 +150,7 @@ export function Header() {
         id="mobile-menu"
         className={cn(
           'overflow-hidden bg-ink transition-[max-height,opacity] duration-500 lg:hidden',
-          open ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0',
+          open ? 'max-h-[calc(100dvh-88px)] overflow-y-auto overscroll-contain opacity-100' : 'max-h-0 invisible opacity-0',
         )}
       >
         <nav aria-label="Navigazione mobile" className="px-6 py-6">
@@ -162,6 +170,9 @@ export function Header() {
               </li>
             ))}
           </ul>
+          <div className="mt-6 flex justify-end">
+            <LanguageSwitcher light />
+          </div>
         </nav>
       </div>
     </header>

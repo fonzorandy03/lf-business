@@ -1,0 +1,47 @@
+name: Build and deploy to Plesk
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: production-plesk
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static website
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Deploy static build to Plesk
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.PLESK_FTP_SERVER }}
+          username: ${{ secrets.PLESK_FTP_USERNAME }}
+          password: ${{ secrets.PLESK_FTP_PASSWORD }}
+          protocol: ${{ secrets.PLESK_FTP_PROTOCOL }}
+          port: ${{ secrets.PLESK_FTP_PORT }}
+          local-dir: ./out/
+          server-dir: ${{ secrets.PLESK_FTP_DIRECTORY }}
+          dangerous-clean-slate: false
+

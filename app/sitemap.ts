@@ -1,9 +1,12 @@
 import type { MetadataRoute } from 'next'
 import { getAllArticles } from '@/lib/blog'
 import { absoluteUrl } from '@/lib/site'
+import { LEGAL_AREAS } from '@/lib/legal'
+
+export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ['', '/sezione-business', '/galleria', '/blog', '/contattaci'].map(
+  const staticPages = ['', '/sezione-business', '/specializzazioni-legali', '/galleria', '/blog', '/contattaci', '/curriculum'].map(
     (path) => ({
       url: absoluteUrl(path || '/'),
       lastModified: new Date(),
@@ -19,5 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...articles]
+  const legalAreas = LEGAL_AREAS.map((area) => ({
+    url: absoluteUrl(area.href),
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }))
+
+  return [...staticPages, ...legalAreas, ...articles]
 }

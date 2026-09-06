@@ -1,5 +1,5 @@
 import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react'
-import { ADDRESS, CONTACT } from '@/lib/site'
+import { ADDRESS, CONTACT, STUDIO_CONTACT } from '@/lib/site'
 
 const mapsQuery = encodeURIComponent(ADDRESS.mapsQuery)
 const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
@@ -62,10 +62,10 @@ export function StudioInfo() {
                 Telefono
               </p>
               <a
-                href={CONTACT.phoneHref}
+                href={STUDIO_CONTACT.phoneHref}
                 className="mt-2 block text-foreground/85 transition-colors hover:text-gold"
               >
-                {CONTACT.phone}
+                {STUDIO_CONTACT.phone}
               </a>
             </div>
           </li>

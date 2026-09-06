@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import { SITE_DESCRIPTION, SITE_URL } from '@/lib/site'
+import { LanguageProvider } from '@/components/LanguageProvider'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -61,8 +62,10 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${cormorant.variable} ${inter.variable} bg-background`}>
       <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <LanguageProvider>
+          {children}
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+        </LanguageProvider>
       </body>
     </html>
   )

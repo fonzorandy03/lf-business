@@ -20,7 +20,7 @@ const pillars = [
 
 export function BusinessIntro() {
   return (
-    <section className="business-intro relative overflow-hidden bg-secondary">
+    <section id="business-intro" className="business-intro relative overflow-hidden bg-secondary">
       <div className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 sm:py-28 lg:py-36">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">

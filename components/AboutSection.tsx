@@ -4,10 +4,10 @@ import { Reveal } from './Reveal'
 
 export function AboutSection() {
   return (
-    <section id="chi-siamo" className="bg-background py-24 lg:py-32">
+    <section id="chi-siamo" className="scroll-mt-24 bg-background py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-          <div className="lg:col-span-5">
+        <div className="grid gap-10 sm:gap-16 lg:grid-cols-12 lg:gap-20">
+          <div className="min-w-0 lg:col-span-5">
             <Reveal>
               <SectionHeading eyebrow="Chi siamo" title="Un team, due discipline, una visione internazionale." />
             </Reveal>
@@ -19,20 +19,20 @@ export function AboutSection() {
                 </p>
                 <div className="sole-card group relative overflow-hidden border border-ink/10 bg-ink px-7 py-7 text-ivory shadow-[0_18px_45px_-28px_rgba(0,0,0,0.8)]">
                   <div className="sole-card-glow absolute inset-0" aria-hidden="true" />
-                  <div className="relative flex items-center justify-between gap-7">
-                    <div className="flex min-h-16 min-w-36 items-center justify-center bg-white px-5 py-4 transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="relative flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-7">
+                    <div className="flex w-40 max-w-full shrink-0 items-center justify-center bg-white px-3 py-3 transition-transform duration-500 group-hover:-translate-y-1">
                       <Image
-                        src="/images/logo-il-sole-24-ore.svg"
-                        alt="Il Sole 24 ORE"
-                        width={195}
-                        height={72}
-                        className="h-auto w-36"
+                        src="/images/partner-24-ore.png"
+                        alt="Partner 24 ORE"
+                        width={600}
+                        height={332}
+                        className="h-auto w-40"
                       />
                     </div>
-                    <div className="min-w-0 border-l border-gold/45 pl-6">
-                      <p className="font-serif text-xl leading-tight text-ivory">Partner del network</p>
+                    <div className="min-w-0 border-t border-gold/45 pt-4 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+                      <p className="font-serif text-xl leading-tight text-ivory">Partner 24 ORE</p>
                       <p className="mt-2 text-[0.65rem] uppercase leading-relaxed tracking-[0.2em] text-gold-soft">
-                        Competenze e relazioni professionali
+                        Network professionale de Il Sole 24 Ore
                       </p>
                     </div>
                   </div>
@@ -44,7 +44,7 @@ export function AboutSection() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             <Reveal delay={80}>
               <div className="relative max-w-3xl lg:pt-2">
                 <div className="relative overflow-hidden bg-secondary/65 px-7 py-8 sm:px-9 sm:py-10">
