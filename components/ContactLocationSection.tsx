@@ -2,7 +2,7 @@ import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react'
 import { SectionHeading } from './SectionHeading'
 import { CTAButton } from './CTAButton'
 import { Reveal } from './Reveal'
-import { ADDRESS, CONTACT } from '@/lib/site'
+import { ADDRESS, CONTACT, NAPLES_ADDRESS } from '@/lib/site'
 
 const mapsQuery = encodeURIComponent(ADDRESS.mapsQuery)
 const mapEmbed = `https://www.google.com/maps?q=${mapsQuery}&z=14&output=embed`
@@ -35,6 +35,18 @@ export function ContactLocationSection() {
                       {ADDRESS.zip}
                       <br />
                       {ADDRESS.country}
+                    </address>
+                    <p className="mt-5 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted-foreground">
+                      Sede di Napoli
+                    </p>
+                    <address className="mt-2 not-italic leading-relaxed text-foreground/85">
+                      {NAPLES_ADDRESS.street}
+                      <br />
+                      {NAPLES_ADDRESS.city}
+                      <br />
+                      {NAPLES_ADDRESS.zip}
+                      <br />
+                      {NAPLES_ADDRESS.country}
                     </address>
                   </div>
                 </li>

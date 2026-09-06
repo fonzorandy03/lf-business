@@ -1,5 +1,5 @@
 import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react'
-import { ADDRESS, CONTACT, STUDIO_CONTACT } from '@/lib/site'
+import { ADDRESS, CONTACT, NAPLES_ADDRESS, STUDIO_CONTACT } from '@/lib/site'
 
 const mapsQuery = encodeURIComponent(ADDRESS.mapsQuery)
 const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
@@ -35,6 +35,16 @@ export function StudioInfo() {
                   {ADDRESS.city} — {ADDRESS.zip}
                   <br />
                   {ADDRESS.country}
+                </address>
+                <p className="mt-5 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-muted-foreground">
+                  Sede di Napoli
+                </p>
+                <address className="mt-2 not-italic leading-relaxed text-foreground/85 transition-colors group-hover:text-gold">
+                  {NAPLES_ADDRESS.street}
+                  <br />
+                  {NAPLES_ADDRESS.city} — {NAPLES_ADDRESS.zip}
+                  <br />
+                  {NAPLES_ADDRESS.country}
                 </address>
               </a>
             </div>

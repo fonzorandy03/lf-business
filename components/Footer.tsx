@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { SVGProps } from 'react'
-import { NAV_LINKS, CONTACT, ADDRESS, SOCIAL } from '@/lib/site'
+import { NAV_LINKS, CONTACT, ADDRESS, NAPLES_ADDRESS, SOCIAL } from '@/lib/site'
 
 type IconProps = SVGProps<SVGSVGElement>
 
@@ -80,6 +80,9 @@ export function Footer() {
               <p>{ADDRESS.street}</p>
               <p>{ADDRESS.city}</p>
               <p>{ADDRESS.zip}</p>
+              <p className="pt-3 text-gold-soft">{NAPLES_ADDRESS.street}</p>
+              <p>{NAPLES_ADDRESS.city}</p>
+              <p>{NAPLES_ADDRESS.zip}</p>
             </address>
           </div>
 

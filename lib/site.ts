@@ -46,6 +46,14 @@ export const ADDRESS = {
   mapsQuery: 'Via Onofrio Tortora 15, 84087 Sarno SA, Italia',
 } as const
 
+export const NAPLES_ADDRESS = {
+  street: 'Piazza dei Martiri 30',
+  city: 'Napoli (Na)',
+  zip: '80132',
+  country: 'Italia',
+  mapsQuery: 'Piazza dei Martiri 30, 80132 Napoli NA, Italia',
+} as const
+
 export const SOCIAL = [
   { label: 'Facebook', href: 'https://www.facebook.com/www.avvocatibf.facebok.eu/' },
   { label: 'Instagram', href: 'https://www.instagram.com/avvferrara/' },
