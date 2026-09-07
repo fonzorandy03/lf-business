@@ -1,11 +1,30 @@
+import Image from 'next/image'
 import { Reveal } from '@/components/Reveal'
+
+const projectImages = [
+  {
+    src: '/images/internazionalizzazione-incontro-istituzionale.jpeg',
+    alt: 'Incontro tra professionisti e partner internazionali',
+    label: 'Relazioni internazionali',
+  },
+  {
+    src: '/images/internazionalizzazione-tavolo-operativo.jpeg',
+    alt: 'Tavolo operativo per lo sviluppo di progetti internazionali',
+    label: 'Coordinamento operativo',
+  },
+  {
+    src: '/images/internazionalizzazione-visita-industriale.jpeg',
+    alt: 'Visita presso un impianto produttivo italiano',
+    label: 'Sviluppo industriale',
+  },
+] as const
 
 const projects = [
   {
     number: '01',
     place: 'Guinea Conakry',
     title: 'Cocoa Bridge',
-    category: 'Agroindustria · Formazione · Cooperazione',
+    category: 'Agroindustria Â· Formazione Â· Cooperazione',
     content: (
       <>
         Sviluppo del progetto <strong>Cocoa Bridge (cioccolato di Modica) - Africa Mediterranean
@@ -18,16 +37,16 @@ const projects = [
   },
   {
     number: '02',
-    place: 'Burundi · Ruanda · Uganda',
+    place: 'Burundi Â· Ruanda Â· Uganda',
     title: 'Regione dei Grandi Laghi',
-    category: 'Made in Italy · Moda · Agroalimentare',
+    category: 'Made in Italy Â· Moda Â· Agroalimentare',
     content: (
       <>
         Sviluppo di iniziative finalizzate alla <strong>promozione delle eccellenze italiane nei
         settori agroalimentare, moda e artigianato</strong>, favorendo nuovi canali commerciali e
-        partnership con operatori locali. Il comparto moda è coordinato dallo <strong>stilista
-        Antonio Sasso e dai suoi brand</strong>, nell’ambito di una strategia integrata di
-        valorizzazione del <strong>Made in Italy nei mercati dell’Africa orientale</strong>.
+        partnership con operatori locali. Il comparto moda Ã¨ coordinato dallo <strong>stilista
+        Antonio Sasso e dai suoi brand</strong>, nellâ€™ambito di una strategia integrata di
+        valorizzazione del <strong>Made in Italy nei mercati dellâ€™Africa orientale</strong>.
       </>
     ),
   },
@@ -35,11 +54,11 @@ const projects = [
     number: '03',
     place: 'Guinea Conakry',
     title: 'Sviluppo industriale e territoriale',
-    category: 'Infrastrutture · Economia circolare · Filiere',
+    category: 'Infrastrutture Â· Economia circolare Â· Filiere',
     content: (
       <>
-        Sono in fase di sviluppo e valutazione progettualità nei settori <strong>infrastrutture ed
-        edilizia, piscicoltura, trattamento e valorizzazione dei rifiuti, caffè e karité</strong>,
+        Sono in fase di sviluppo e valutazione progettualitÃ  nei settori <strong>infrastrutture ed
+        edilizia, piscicoltura, trattamento e valorizzazione dei rifiuti, caffÃ¨ e karitÃ©</strong>,
         attraverso il coinvolgimento di imprese e partner tecnici e finanziari.
       </>
     ),
@@ -48,16 +67,16 @@ const projects = [
     number: '04',
     place: 'Gabon',
     title: 'Polo avicolo integrato',
-    category: 'Produzione · Formazione · Sostenibilità',
+    category: 'Produzione Â· Formazione Â· SostenibilitÃ ',
     content: (
       <>
-        Progetto di internazionalizzazione di un’impresa italiana specializzata nella filiera
+        Progetto di internazionalizzazione di unâ€™impresa italiana specializzata nella filiera
         avicola, finalizzato alla realizzazione di un <strong>polo produttivo integrato</strong>
         comprendente allevamento, incubatoio, mangimificio, macellazione, trasformazione e
-        distribuzione. L’iniziativa contempla inoltre <strong>formazione professionale del personale
+        distribuzione. Lâ€™iniziativa contempla inoltre <strong>formazione professionale del personale
         locale, valorizzazione delle filiere agricole gabonesi e soluzioni energetiche
-        sostenibili</strong>, nell’ambito delle interlocuzioni istituzionali con le competenti
-        Autorità del Gabon.
+        sostenibili</strong>, nellâ€™ambito delle interlocuzioni istituzionali con le competenti
+        AutoritÃ  del Gabon.
       </>
     ),
   },
@@ -76,7 +95,7 @@ export function InternationalizationAfrica() {
               Internazionalizzazione delle imprese
             </p>
             <h2 className="mt-6 max-w-4xl font-serif text-4xl leading-[1.05] text-ink text-balance sm:text-5xl lg:text-6xl">
-              Africa<span className="italic text-gold"> · Progetti e partnership internazionali.</span>
+              Africa<span className="italic text-gold"> Â· Progetti e partnership internazionali.</span>
             </h2>
           </div>
           <p className="max-w-md text-base leading-relaxed text-stone lg:col-span-4">
@@ -95,6 +114,31 @@ export function InternationalizationAfrica() {
           </p>
           <p className="mt-7 text-sm uppercase tracking-[0.18em] text-gold">Iniziative attualmente in corso</p>
         </Reveal>
+
+        <div className="mt-14 grid gap-4 md:grid-cols-12 lg:mt-16">
+          {projectImages.map((image, index) => (
+            <Reveal
+              key={image.src}
+              delay={index * 100}
+              className={index === 0 ? 'md:col-span-7' : index === 1 ? 'md:col-span-5' : 'md:col-span-12'}
+            >
+              <figure className={`group relative overflow-hidden bg-ink ${index === 2 ? 'aspect-[16/7]' : 'aspect-[4/3]'}`}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes={index === 2 ? '100vw' : '(max-width: 767px) 100vw, 58vw'}
+                  className="object-cover transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" aria-hidden="true" />
+                <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-5 text-[0.62rem] font-medium uppercase tracking-[0.22em] text-ivory sm:p-7">
+                  <span className="h-px w-8 bg-gold" aria-hidden="true" />
+                  {image.label}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {projects.map((project, index) => (
@@ -130,10 +174,10 @@ export function InternationalizationAfrica() {
               Lo Studio cura il <strong className="font-medium text-ivory">coordinamento giuridico e
               istituzionale delle operazioni internazionali</strong>, la predisposizione e
               negoziazione degli accordi, la tutela delle imprese nei rapporti con partner esteri e
-              l’assistenza nelle diverse fasi di sviluppo e strutturazione degli investimenti.
+              lâ€™assistenza nelle diverse fasi di sviluppo e strutturazione degli investimenti.
             </Reveal>
             <Reveal as="p" delay={100} className="border-l border-gold pl-6 font-serif text-2xl leading-[1.5] text-ivory">
-              L’obiettivo è creare un <span className="text-gold-soft">ponte tra le imprese italiane
+              Lâ€™obiettivo Ã¨ creare un <span className="text-gold-soft">ponte tra le imprese italiane
               e i mercati africani</span>, integrando competenze giuridiche, relazioni istituzionali
               e sviluppo di partnership internazionali.
             </Reveal>
@@ -143,3 +187,4 @@ export function InternationalizationAfrica() {
     </section>
   )
 }
+
