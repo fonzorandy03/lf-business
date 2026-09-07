@@ -5,7 +5,7 @@ import { CONTACT, NUNZIA_CONTACT, STUDIO_CONTACT, nunziaWhatsappHref, whatsappHr
 
 export function DirectContactActions() {
   return (
-    <section className="relative isolate overflow-hidden bg-ink py-24 lg:py-28">
+    <section className="mobile-contact-actions relative isolate overflow-hidden bg-ink py-24 lg:py-28">
       <div
         aria-hidden="true"
         className="absolute -left-40 top-1/2 -z-10 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full bg-gold/[0.05] blur-3xl"
@@ -80,3 +80,4 @@ export function DirectContactActions() {
     </section>
   )
 }
+

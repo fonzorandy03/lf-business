@@ -26,7 +26,7 @@ export default function CurriculumPage() {
     <>
       <Header />
       <main id="contenuto">
-        <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
+        <section className="site-hero relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
           <div className="absolute inset-0 -z-10">
             <div className="absolute inset-y-[-10%] left-0 right-[-25%]">
               <Image
@@ -43,7 +43,7 @@ export default function CurriculumPage() {
             <div className="hero-light-sweep absolute inset-0" aria-hidden="true" />
           </div>
 
-          <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-10">
+          <div className="site-hero-content relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-10">
             <p className="hero-reveal hero-delay-1 flex items-center gap-4 text-[0.68rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
               <span className="h-px w-10 bg-gold" aria-hidden="true" />
               Profilo professionale
@@ -134,3 +134,4 @@ export default function CurriculumPage() {
     </>
   )
 }
+

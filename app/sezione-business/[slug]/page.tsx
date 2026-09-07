@@ -68,7 +68,7 @@ export default async function AreaDetailPage({
       <Header />
       <main>
         {/* Hero */}
-        <section className="area-detail-hero relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
+        <section className="site-hero area-detail-hero relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
           <div className="absolute inset-0 -z-10">
             <Image
               src={area.image || '/placeholder.svg'}
@@ -213,3 +213,4 @@ export default async function AreaDetailPage({
     </>
   )
 }
+

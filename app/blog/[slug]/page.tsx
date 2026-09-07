@@ -76,7 +76,7 @@ export default async function ArticlePage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
         {/* Hero */}
-        <header className="relative isolate flex min-h-[68vh] items-end overflow-hidden bg-ink pt-32">
+        <header className="article-hero relative isolate flex min-h-[68vh] items-end overflow-hidden bg-ink pt-32">
           <div className="absolute inset-0 -z-10">
             <Image
               src={article.coverImage || '/images/blog/placeholder.png'}
@@ -157,3 +157,4 @@ export default async function ArticlePage({
     </>
   )
 }
+

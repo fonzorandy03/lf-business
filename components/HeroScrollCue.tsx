@@ -32,7 +32,7 @@ export function HeroScrollCue({ targetId = 'chi-siamo' }: { targetId?: string })
       onClick={scrollToContent}
       aria-label="Scorri alla sezione successiva"
       className={cn(
-        'group absolute inset-x-0 bottom-0 z-10 mx-auto flex w-fit flex-col items-center pb-8',
+        'hero-scroll-cue group absolute inset-x-0 bottom-0 z-10 mx-auto flex w-fit flex-col items-center pb-8',
         'text-[0.62rem] font-medium uppercase tracking-[0.34em] text-ivory/65',
         'transition-all duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold',
         hidden ? 'pointer-events-none translate-y-3 opacity-0' : 'translate-y-0',
@@ -46,3 +46,4 @@ export function HeroScrollCue({ targetId = 'chi-siamo' }: { targetId?: string })
     </button>
   )
 }
+

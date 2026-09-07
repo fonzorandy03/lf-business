@@ -3,7 +3,7 @@ import { Reveal } from './Reveal'
 
 export function ProfessionalsSection() {
   return (
-    <section className="relative overflow-hidden border-t border-border bg-secondary/35 py-24 lg:py-32">
+    <section className="home-professionals relative overflow-hidden border-t border-border bg-secondary/35 py-24 lg:py-32">
       <div className="pointer-events-none absolute -right-32 top-20 h-96 w-96 rounded-full border border-gold/10" aria-hidden="true" />
       <div className="pointer-events-none absolute -right-16 top-36 h-64 w-64 rounded-full border border-gold/15" aria-hidden="true" />
 
@@ -49,7 +49,7 @@ export function ProfessionalsSection() {
                   </p>
                   <h3 className="font-serif text-4xl font-medium text-ink sm:text-5xl">Avv. Luigi Ferrara</h3>
                   <span className="mb-8 mt-6 block h-px w-16 bg-gold transition-all duration-700 group-hover:w-28" aria-hidden="true" />
-                  <div className="max-w-2xl space-y-5 text-[0.96rem] leading-[1.78] text-foreground/75">
+                  <div className="professional-bio max-w-2xl space-y-5 text-[0.96rem] leading-[1.78] text-foreground/75">
                     <p>
                       Avv. Luigi Ferrara, fondatore dello Studio Legale LF Business svolge da oltre
                       vent&apos;anni la propria attività professionale nei settori del diritto
@@ -77,6 +77,7 @@ export function ProfessionalsSection() {
                       </a>
                     </p>
                   </div>
+                  <a href="/curriculum" className="mobile-profile-link mt-7 hidden min-h-12 items-center gap-3 border-t border-gold/30 pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-gold">Profilo e curriculum <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </article>
@@ -105,7 +106,7 @@ export function ProfessionalsSection() {
                   </p>
                   <h3 className="font-serif text-4xl font-medium text-ivory sm:text-5xl">Avv. Nunzia Robustelli</h3>
                   <span className="mb-8 mt-6 block h-px w-16 bg-gold transition-all duration-700 group-hover:w-28" aria-hidden="true" />
-                  <div className="max-w-2xl space-y-5 text-[0.96rem] leading-[1.8] text-ivory/68">
+                  <div className="professional-bio max-w-2xl space-y-5 text-[0.96rem] leading-[1.8] text-ivory/68">
                     <p>
                       L&apos;Avv. Nunzia Robustelli, iscritta al Foro di Nola, esercita la professione
                       forense con particolare specializzazione nel diritto societario e nel diritto
@@ -122,6 +123,7 @@ export function ProfessionalsSection() {
                       prestando assistenza sia nella fase stragiudiziale sia in quella contenziosa.
                     </p>
                   </div>
+                  <a href="/contattaci" className="mobile-profile-link mt-7 hidden min-h-12 items-center gap-3 border-t border-gold/30 pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-gold-soft">Contatta la professionista <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </article>
@@ -131,3 +133,4 @@ export function ProfessionalsSection() {
     </section>
   )
 }
+

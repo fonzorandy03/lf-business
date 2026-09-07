@@ -4,7 +4,7 @@ import { HeroScrollCue } from '@/components/HeroScrollCue'
 
 export function ContactHero() {
   return (
-    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
+    <section className="site-hero relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/contact-hero-cinematic.png"
@@ -19,7 +19,7 @@ export function ContactHero() {
         <div className="hero-light-sweep absolute inset-0" aria-hidden="true" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-32 lg:px-10">
+      <div className="site-hero-content relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 pt-32 lg:px-10">
         <div className="max-w-3xl">
           <p className="hero-reveal hero-delay-1 mb-6 flex items-center gap-4 text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold-soft">
             <span className="h-px w-10 bg-gold" aria-hidden="true" />
@@ -49,3 +49,4 @@ export function ContactHero() {
     </section>
   )
 }
+

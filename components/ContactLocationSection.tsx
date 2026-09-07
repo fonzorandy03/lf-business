@@ -10,7 +10,7 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
 
 export function ContactLocationSection() {
   return (
-    <section id="dove-siamo" className="bg-background py-24 lg:py-32">
+    <section id="dove-siamo" className="home-location bg-background py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <SectionHeading eyebrow="Puoi trovarci qui" title="Vieni a trovarci" />
@@ -116,3 +116,4 @@ export function ContactLocationSection() {
     </section>
   )
 }
+

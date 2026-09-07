@@ -35,7 +35,7 @@ export function MasonryGallery({ images, filters }: MasonryGalleryProps) {
 
       <div
         key={active}
-        className="grid auto-rows-[136px] grid-cols-2 gap-3 sm:auto-rows-[168px] sm:gap-4 md:grid-cols-3 md:auto-rows-[196px] lg:grid-cols-4 lg:auto-rows-[214px] [grid-auto-flow:dense]"
+        className="gallery-mobile-grid grid auto-rows-[17rem] grid-cols-1 gap-4 sm:auto-rows-[168px] sm:grid-cols-2 md:grid-cols-3 md:auto-rows-[196px] lg:grid-cols-4 lg:auto-rows-[214px] [grid-auto-flow:dense]"
       >
         {visible.map((image, i) => (
           <GalleryItem
@@ -59,3 +59,4 @@ export function MasonryGallery({ images, filters }: MasonryGalleryProps) {
     </div>
   )
 }
+

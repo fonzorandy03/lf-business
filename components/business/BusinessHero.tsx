@@ -48,7 +48,7 @@ export function BusinessHero() {
   }
 
   return (
-    <section className="business-hero relative isolate flex min-h-[100svh] items-start overflow-hidden bg-ink lg:items-center">
+    <section className="site-hero business-hero relative isolate flex min-h-[100svh] items-start overflow-hidden bg-ink lg:items-center">
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/business-hero.png"
@@ -63,7 +63,7 @@ export function BusinessHero() {
         <div className="hero-light-sweep absolute inset-0" aria-hidden="true" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-6 pb-20 pt-32 sm:px-10 sm:pt-40 lg:grid-cols-[1fr_22rem] lg:items-end lg:pb-28">
+      <div className="site-hero-content mx-auto grid w-full max-w-[1400px] gap-12 px-6 pb-20 pt-32 sm:px-10 sm:pt-40 lg:grid-cols-[1fr_22rem] lg:items-end lg:pb-28">
         <div className="max-w-4xl">
           <div className="hero-reveal hero-delay-1 flex items-center gap-3">
             <span className="h-px w-10 bg-gold" aria-hidden="true" />
@@ -117,3 +117,4 @@ export function BusinessHero() {
     </section>
   )
 }
+

@@ -16,7 +16,7 @@ function Monogram({ light }: { light: boolean }) {
       aria-label="LF Business – Home Page"
       className="group flex items-center gap-3"
     >
-      <span className="relative flex h-12 w-14 items-center justify-center transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:scale-105">
+      <span className="relative flex h-10 w-12 items-center justify-center transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:scale-105 sm:h-12 sm:w-14">
         <Image
           src="/images/logo-lf-clean.png"
           alt="Logo LF Luigi Ferrara"
@@ -86,7 +86,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-500',
+        'site-header fixed inset-x-0 top-0 z-50 transition-all duration-500',
         open
           ? 'border-b border-ivory/10 bg-ink py-3'
           : transparent
@@ -212,4 +212,5 @@ export function Header() {
     </header>
   )
 }
+
 

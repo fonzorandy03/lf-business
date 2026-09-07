@@ -30,7 +30,7 @@ const AREAS = [
 
 export function PracticeAreasSection() {
   return (
-    <section className="relative overflow-hidden bg-ink py-24 lg:py-32">
+    <section className="home-practice-areas relative overflow-hidden bg-ink py-24 lg:py-32">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(191,151,84,0.12),transparent_30%),radial-gradient(circle_at_88%_85%,rgba(191,151,84,0.07),transparent_26%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
@@ -57,7 +57,7 @@ export function PracticeAreasSection() {
               key={area.title}
               delay={i * 110}
             >
-              <article className="group relative flex min-h-[34rem] flex-col overflow-hidden border border-white/12 bg-white/[0.035] p-7 transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-gold/45 hover:bg-white/[0.055] hover:shadow-[inset_0_0_70px_rgba(191,151,84,0.075),0_25px_65px_-48px_rgba(191,151,84,0.5)] sm:p-9">
+              <article className="practice-area-card group relative flex min-h-[34rem] flex-col overflow-hidden border border-white/12 bg-white/[0.035] p-7 transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-gold/45 hover:bg-white/[0.055] hover:shadow-[inset_0_0_70px_rgba(191,151,84,0.075),0_25px_65px_-48px_rgba(191,151,84,0.5)] sm:p-9">
                 <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-gold/0 blur-3xl transition-all duration-1000 group-hover:bg-gold/12" aria-hidden="true" />
                 <div className="absolute inset-x-0 top-0 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-gold to-transparent transition-transform duration-1000 group-hover:scale-x-100" />
                 <div className="relative flex items-start justify-between">
@@ -66,7 +66,7 @@ export function PracticeAreasSection() {
                 </div>
                 <span className="relative mb-7 mt-10 h-px w-10 bg-gold transition-all duration-700 group-hover:w-20" />
                 <h3 className="relative font-serif text-3xl font-medium leading-tight text-ivory text-balance">{area.title}</h3>
-                <div className="relative mt-6 flex-1 space-y-4 text-[0.9rem] leading-[1.72] text-ivory/58 transition-colors duration-700 group-hover:text-ivory/76">
+                <div className="practice-area-body relative mt-6 flex-1 space-y-4 text-[0.9rem] leading-[1.72] text-ivory/58 transition-colors duration-700 group-hover:text-ivory/76">
                   {area.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 </div>
                 <div className="relative mt-8">
@@ -80,3 +80,4 @@ export function PracticeAreasSection() {
     </section>
   )
 }
+

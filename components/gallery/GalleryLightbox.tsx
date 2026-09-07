@@ -77,7 +77,7 @@ export function GalleryLightbox({ images, index, onClose, onNavigate }: GalleryL
       role="dialog"
       aria-modal="true"
       aria-label={`Immagine ${index + 1} di ${images.length}: ${image.title}`}
-      className="fixed inset-0 z-[100] flex flex-col bg-ink/95 backdrop-blur-sm"
+      className="gallery-lightbox fixed inset-0 z-[100] flex flex-col bg-ink/95 backdrop-blur-sm"
       onClick={onClose}
     >
       {/* Top bar: counter + close */}
@@ -159,3 +159,4 @@ export function GalleryLightbox({ images, index, onClose, onNavigate }: GalleryL
     </div>
   )
 }
+
