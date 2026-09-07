@@ -23,12 +23,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const area = getBusinessArea(slug)
-  if (!area) return { title: 'Sezione Business — LF Business' }
+  if (!area) return { title: 'Sezione Business â€” LF Business' }
   return {
-    title: `${area.title} — LF Business`,
+    title: `${area.title} â€” LF Business`,
     description: area.description,
     openGraph: {
-      title: `${area.title} — LF Business`,
+      title: `${area.title} â€” LF Business`,
       description: area.description,
       images: [area.image],
     },
@@ -49,20 +49,6 @@ export default async function AreaDetailPage({
   const isMarkets = area.slug === 'mercati-live'
   const isOil = area.slug === 'prodotti-petroliferi'
   const isInternationalization = area.slug === 'internazionalizzazione'
-  const journey = isMarkets ? [
-    { number: '01', title: 'Osservare', text: 'Segui Brent e WTI attraverso quotazioni, variazioni e andamento nei diversi intervalli temporali.' },
-    { number: '02', title: 'Interpretare', text: 'Leggi i movimenti del petrolio nel contesto delle dinamiche commerciali e degli obiettivi dell’impresa.' },
-    { number: '03', title: 'Decidere', text: 'Integra i dati di mercato con una valutazione strategica e legale consapevole delle opportunità e dei rischi.' },
-  ] : isOil ? [
-    { number: '01', title: 'Qualificare', text: 'Verifichiamo controparti, requisiti, documentazione e condizioni essenziali dell’operazione.' },
-    { number: '02', title: 'Strutturare', text: 'Definiamo procedure, accordi e garanzie coerenti con gli standard del commercio energetico internazionale.' },
-    { number: '03', title: 'Negoziare', text: 'Presidiamo il confronto tra le parti fino alla definizione di un assetto contrattuale chiaro e tutelato.' },
-  ] : [
-    { number: '01', title: 'Analisi del progetto', text: 'Obiettivi, mercato di destinazione, interlocutori e criticità vengono esaminati per definire priorità concrete.' },
-    { number: '02', title: 'Architettura dell’operazione', text: 'Costruiamo accordi, garanzie e relazioni operative su misura, coordinando la dimensione legale e strategica.' },
-    { number: '03', title: 'Sviluppo e presidio', text: 'Accompagniamo l’impresa nella negoziazione e nei rapporti con partner e istituzioni durante ogni fase del progetto.' },
-  ]
-
   return (
     <>
       <Header />
@@ -131,7 +117,7 @@ export default async function AreaDetailPage({
                   La nostra assistenza
                 </span>
                 <p className="mt-6 font-serif text-2xl leading-[1.2] text-ink text-balance lg:text-3xl">
-                  {isMarkets ? 'Dati di mercato e competenze professionali in una visione coordinata.' : isOil ? 'Assistenza rigorosa per operazioni energetiche complesse e internazionali.' : 'Un presidio legale e strategico costruito intorno agli obiettivi dell’impresa.'}
+                  {isMarkets ? 'Dati di mercato e competenze professionali in una visione coordinata.' : isOil ? 'Assistenza rigorosa per operazioni energetiche complesse e internazionali.' : 'Un presidio legale e strategico costruito intorno agli obiettivi dellâ€™impresa.'}
                 </p>
                 <div className="mt-9 hidden h-px w-full bg-gradient-to-r from-gold/60 to-transparent lg:block" />
               </Reveal>
@@ -149,8 +135,8 @@ export default async function AreaDetailPage({
                 ))}
 
                 <Reveal className="mt-12 border-l-2 border-gold bg-secondary p-7 sm:p-9" delay={180}>
-                  <p className="font-serif text-2xl leading-tight text-ink sm:text-3xl">{isMarkets ? 'Le oscillazioni del petrolio incidono sulle vostre decisioni?' : isOil ? 'State strutturando un’operazione nel settore energetico?' : 'State valutando un nuovo mercato o un accordo internazionale?'}</p>
-                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-stone">{isMarkets ? 'Affianchiamo alla lettura dei dati una valutazione legale e strategica calibrata sugli obiettivi dell’impresa.' : isOil ? 'Un confronto preliminare consente di verificare procedure, controparti e garanzie prima di avviare la negoziazione.' : 'Un confronto iniziale permette di individuare opportunità, rischi e priorità prima di assumere decisioni operative.'}</p>
+                  <p className="font-serif text-2xl leading-tight text-ink sm:text-3xl">{isMarkets ? 'Le oscillazioni del petrolio incidono sulle vostre decisioni?' : isOil ? 'State strutturando unâ€™operazione nel settore energetico?' : 'State valutando un nuovo mercato o un accordo internazionale?'}</p>
+                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-stone">{isMarkets ? 'Affianchiamo alla lettura dei dati una valutazione legale e strategica calibrata sugli obiettivi dellâ€™impresa.' : isOil ? 'Un confronto preliminare consente di verificare procedure, controparti e garanzie prima di avviare la negoziazione.' : 'Un confronto iniziale permette di individuare opportunitÃ , rischi e prioritÃ  prima di assumere decisioni operative.'}</p>
                   <div className="mt-7">
                     <CTAButton href="/contattaci" variant="primary">Parliamo del vostro progetto</CTAButton>
                   </div>
@@ -165,27 +151,6 @@ export default async function AreaDetailPage({
         {isInternationalization && <InternationalizationAfrica />}
 
         {isMarkets && <MarketWidgets />}
-
-        <section className="bg-ink text-ivory">
-          <div className="mx-auto max-w-[1400px] px-6 py-24 sm:px-10 sm:py-28 lg:py-36">
-            <Reveal className="grid gap-7 border-b border-ivory/15 pb-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-8">
-                <span className="text-[0.68rem] font-medium uppercase tracking-[0.28em] text-gold">Il percorso</span>
-                <h2 className="mt-5 font-serif text-4xl leading-none text-ivory sm:text-5xl">{isMarkets ? 'Dal dato alla decisione.' : isOil ? 'Dalla verifica all’accordo.' : 'Dalla visione all’operazione.'}</h2>
-              </div>
-              <p className="max-w-md text-sm leading-relaxed text-ivory/55 lg:col-span-4">{isMarkets ? 'Un percorso che collega osservazione del mercato, interpretazione e scelta strategica.' : isOil ? 'Un metodo trasparente per presidiare ogni fase delle operazioni nel commercio energetico.' : 'Un metodo rigoroso, leggibile e calibrato sulle esigenze specifiche di ogni iniziativa.'}</p>
-            </Reveal>
-            <div className="grid border-x border-b border-ivory/15 md:grid-cols-3">
-              {journey.map((step, i) => (
-                <Reveal key={step.number} delay={i * 100} className="area-journey-card group border-b border-ivory/15 p-7 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0 sm:p-9">
-                  <span className="font-serif text-4xl text-gold/55 transition-colors duration-500 group-hover:text-gold">{step.number}</span>
-                  <h3 className="mt-12 font-serif text-2xl text-ivory">{step.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-ivory/55">{step.text}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Next area */}
         <section className="border-t border-border bg-secondary">

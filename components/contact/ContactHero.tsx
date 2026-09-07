@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { CTAButton } from '@/components/CTAButton'
 import { HeroScrollCue } from '@/components/HeroScrollCue'
+import { whatsappHref } from '@/lib/site'
 
 export function ContactHero() {
   return (
@@ -27,7 +28,7 @@ export function ContactHero() {
           </p>
 
           <h1 className="hero-reveal hero-delay-2 font-serif text-5xl font-medium leading-[1.02] text-ivory text-balance sm:text-6xl lg:text-7xl">
-            Ogni soluzione inizia dall’ascolto.
+            Ogni soluzione inizia dallâ€™ascolto.
           </h1>
 
           <p className="hero-reveal hero-delay-3 mt-5 font-serif text-2xl italic text-gold-soft sm:text-3xl lg:text-4xl">
@@ -35,11 +36,11 @@ export function ContactHero() {
           </p>
 
           <p className="hero-reveal hero-delay-4 mt-8 max-w-xl text-base leading-relaxed text-ivory/75 sm:text-lg">
-            Raccontaci la questione che vuoi affrontare. Lo Studio valuterà con attenzione il contesto e il percorso più adatto.
+            Raccontaci la questione che vuoi affrontare. Lo Studio valuterÃ  con attenzione il contesto e il percorso piÃ¹ adatto.
           </p>
 
           <div className="hero-reveal hero-delay-5 mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <CTAButton href="#scrivimi" variant="primary">Scrivi allo Studio</CTAButton>
+            <CTAButton href={whatsappHref} variant="primary">Scrivi allo Studio</CTAButton>
             <CTAButton href="tel:+393281344812" variant="outline-light">Chiama ora</CTAButton>
           </div>
         </div>

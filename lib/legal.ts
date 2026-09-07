@@ -6,7 +6,7 @@ export interface LegalArea {
 
 export const LEGAL_AREAS: LegalArea[] = [
   {
-    number: '01', category: 'Impresa & Governance', title: 'Diritto societario e dâ€™impresa',
+    number: '01', category: 'Impresa & Governance', title: "Diritto societario e d'impresa",
     description: 'Consulenza continuativa alle aziende, governance, rapporti tra soci e contenzioso societario.',
     slug: 'diritto-societario', href: '/specializzazioni-legali/diritto-societario', image: '/images/blog/diritto-impresa.png', imageAlt: 'Architettura istituzionale per il diritto societario', professional: 'Avv. Nunzia Robustelli',
     sections: [
