@@ -46,7 +46,18 @@
   .m-menu-bottom >div { padding-left:0; }
   .m-menu-bottom >div::before { display:none; }
   .m-hero { position:relative; isolation:isolate; background:#111315; color:#f8f5ef; padding:calc(112px + env(safe-area-inset-top)) 22px 48px; min-height:min(76svh,660px); display:flex; align-items:flex-end; }
-  .m-hero-home { min-height:100svh; align-items:flex-start; padding-top:clamp(150px,27svh,220px); padding-bottom:34px; }
+  .m-hero-home { display:block; min-height:0; padding-top:42svh; padding-bottom:30px; }
+  .m-hero-home .m-hero-image,.m-hero-home .m-hero-shade { bottom:auto; height:46svh; }
+  .m-hero-home .m-hero-image { object-position:67% 54% !important; }
+  .m-hero-home .m-hero-shade { background:linear-gradient(180deg,#1113153d 0%,#1113151f 48%,#111315 100%); }
+  .m-hero-home .m-hero-copy { position:relative; padding-top:24px; border-top:1px solid #bea06a70; }
+  .m-hero-home h1 { font-size:44px; }
+  .m-hero-home .m-label { display:flex; align-items:center; gap:12px; font-size:10px; margin-bottom:12px; }
+  .m-hero-home .m-label::before { content:''; width:30px; height:1px; flex:none; background:#bea06a; }
+  .m-hero-home .m-motto { font-size:26px; margin:12px 0 16px; }
+  .m-hero-home .m-hero-copy >p:not(.m-label):not(.m-motto) { max-width:330px; font-size:15.5px; line-height:1.52; }
+  .m-hero-home .m-button { width:260px; min-height:52px; margin-top:20px; }
+  .m-hero-home .m-text-link { width:260px; min-height:44px; }
   .m-hero-image,.m-hero-shade { position:absolute; inset:0; width:100%; height:100%; z-index:-2; }
   .m-hero-image { object-fit:cover; }
   .m-hero-shade { z-index:-1; background:linear-gradient(90deg,#11131572 0%,#11131520 72%),linear-gradient(180deg,#11131542 0%,#11131540 25%,#111315b8 68%,#111315ed 100%); }
@@ -146,5 +157,15 @@
   .m-business-content figure .absolute { display:block; }
   @keyframes m-enter { from {opacity:0;transform:translateY(12px)} to {opacity:1;transform:none} }
   @media (prefers-reduced-motion:reduce) { .lf-mobile *, .lf-mobile *::before { animation:none !important; transition:none !important; scroll-behavior:auto !important; } .lf-mobile .reveal { opacity:1; transform:none; } }
-  @media (max-width:350px) { .m-section { padding:56px 20px; } .m-hero {padding-inline:20px;} .m-hero-home {padding-top:132px;} .m-menu li a {font-size:26px;min-height:46px;} .m-hero-copy .m-motto {font-size:27px;} }
+  @media (max-height:720px) {
+    .m-hero-home { padding-top:36svh; padding-bottom:24px; }
+    .m-hero-home .m-hero-image,.m-hero-home .m-hero-shade { height:40svh; }
+    .m-hero-home .m-hero-copy { padding-top:18px; }
+    .m-hero-home h1 { font-size:40px; }
+    .m-hero-home .m-motto { font-size:24px; margin:9px 0 12px; }
+    .m-hero-home .m-hero-copy >p:not(.m-label):not(.m-motto) { font-size:14.5px; }
+    .m-hero-home .m-button { min-height:48px; margin-top:16px; }
+    .m-hero-home .m-text-link { min-height:42px; }
+  }
+  @media (max-width:350px) { .m-section { padding:56px 20px; } .m-hero {padding-inline:20px;} .m-hero-home h1 {font-size:40px;} .m-hero-home .m-motto {font-size:24px;} .m-menu li a {font-size:26px;min-height:46px;} }
 }
