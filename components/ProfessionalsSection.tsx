@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Reveal } from './Reveal'
+import { EditorialArrow } from './icons/EditorialArrow'
 
 export function ProfessionalsSection() {
   return (
@@ -73,11 +74,11 @@ export function ProfessionalsSection() {
                     </p>
                     <p>
                       <a href="https://www.fipainternational.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 font-medium text-gold transition-colors hover:text-ink">
-                        www.fipainternational.com <span aria-hidden="true">↗</span>
+                        www.fipainternational.com <EditorialArrow direction="external" />
                       </a>
                     </p>
                   </div>
-                  <a href="/curriculum" className="mobile-profile-link mt-7 hidden min-h-12 items-center gap-3 border-t border-gold/30 pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-gold">Profilo e curriculum <span aria-hidden="true">→</span></a>
+                  <a href="/curriculum" className="mobile-profile-link mt-7 hidden min-h-12 items-center gap-3 border-t border-gold/30 pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-gold">Profilo e curriculum <EditorialArrow /></a>
                 </div>
               </div>
             </article>
@@ -123,7 +124,7 @@ export function ProfessionalsSection() {
                       prestando assistenza sia nella fase stragiudiziale sia in quella contenziosa.
                     </p>
                   </div>
-                  <a href="/contattaci" className="mobile-profile-link mt-7 hidden min-h-12 items-center gap-3 border-t border-gold/30 pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-gold-soft">Contatta la professionista <span aria-hidden="true">→</span></a>
+                  <a href="/contattaci" className="mobile-profile-link mt-7 hidden min-h-12 items-center gap-3 border-t border-gold/30 pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-gold-soft">Contatta la professionista <EditorialArrow /></a>
                 </div>
               </div>
             </article>
@@ -133,4 +134,3 @@ export function ProfessionalsSection() {
     </section>
   )
 }
-

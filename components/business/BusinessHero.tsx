@@ -4,6 +4,7 @@ import Image from 'next/image'
 import type { MouseEvent } from 'react'
 import { CTAButton } from '@/components/CTAButton'
 import { HeroScrollCue } from '@/components/HeroScrollCue'
+import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
 const facets = [
   ['01', 'Strategia legale'],
@@ -105,7 +106,7 @@ export function BusinessHero() {
                 <li key={n} className="group flex items-center gap-5 py-5 first:pt-0 last:pb-0">
                   <span className="font-serif text-xl text-gold">{n}</span>
                   <span className="text-sm tracking-wide text-ivory/75 transition-colors group-hover:text-ivory">{label}</span>
-                  <span className="ml-auto text-gold/50 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+                  <EditorialArrow className="ml-auto text-gold/50 transition-transform group-hover:translate-x-1" />
                 </li>
               ))}
             </ul>
@@ -117,4 +118,3 @@ export function BusinessHero() {
     </section>
   )
 }
-

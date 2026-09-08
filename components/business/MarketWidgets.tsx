@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { Reveal } from '@/components/Reveal'
+import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
 const oilTicker = {
   symbols: [
@@ -75,7 +76,7 @@ export function MarketWidgets() {
 
         <div className="mt-5 flex flex-col gap-2 border-t border-ivory/10 pt-5 text-xs leading-relaxed text-ivory/40 sm:flex-row sm:items-center sm:justify-between">
           <p>Dati forniti da TradingView. Le quotazioni possono essere in tempo reale o differite secondo il mercato di riferimento.</p>
-          <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer nofollow" className="text-gold/80 transition-colors hover:text-gold">Powered by TradingView ↗</a>
+          <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 text-gold/80 transition-colors hover:text-gold">Powered by TradingView <EditorialArrow direction="external" /></a>
         </div>
       </div>
     </section>
