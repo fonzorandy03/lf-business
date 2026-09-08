@@ -1,22 +1,45 @@
-import { MobileHero } from './MobileHero'
 import { MobileSection, MobileCTA } from './MobileFrame'
 import { MobileInsights } from './MobileInsights'
-import { LEGAL_AREAS } from '@/lib/legal'
-import { BUSINESS_AREAS } from '@/lib/business'
 import { getAllArticles, toMeta } from '@/lib/blog'
 import { Reveal } from '@/components/Reveal'
 import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
+const expertise = [
+  ['Diritto amministrativo', 'Tutela nei rapporti con la Pubblica Amministrazione e nel contenzioso dinanzi al TAR e al Consiglio di Stato.', '/specializzazioni-legali/edilizia-urbanistica/'],
+  ['Appalti pubblici', 'Assistenza alle imprese nelle procedure di gara e nel relativo contenzioso amministrativo.', '/specializzazioni-legali/appalti-pubblici/'],
+  ['Diritto societario', 'Consulenza continuativa, governance, rapporti tra soci e tutela dell’impresa.', '/specializzazioni-legali/diritto-societario/'],
+  ['Diritto scolastico', 'Reclutamento, graduatorie, riconoscimento dei titoli e tutela dei docenti.', '/specializzazioni-legali/diritto-scolastico/'],
+  ['Internazionalizzazione', 'Contratti, partnership e sviluppo di progetti tra Italia e mercati internazionali.', '/sezione-business/internazionalizzazione/'],
+  ['Business Advisory', 'Visione legale e strategica per operazioni commerciali e progetti complessi.', '/sezione-business/'],
+] as const
+
 export function MobileHome() {
-  return <><MobileHero home image="/images/sfodo sito.png" position="67% 50%" label="Studio Legale · Business Advisory" title="LF Business"><p className="m-motto">“Guiding Your Business<br />Worldwide”</p><p>Diritto amministrativo, societario e d’impresa.<br />Consulenza legale e strategica tra Italia e mercati internazionali.</p><a className="m-button" href="#mobile-studio">Scopri lo Studio <EditorialArrow /></a><a className="m-text-link" href="/contattaci/">Contattaci <EditorialArrow /></a></MobileHero>
-  <MobileSection id="mobile-studio"><Reveal><p className="m-label">01 — Lo Studio</p><h2>Competenza legale.<br /><em>Visione internazionale.</em></h2><p>Luigi Ferrara e Nunzia Robustelli: competenze complementari per tutelare persone, imprese e progetti internazionali.</p><details className="m-disclosure"><summary>Scopri di più <span aria-hidden>+</span></summary><p>LF Business integra competenze altamente specialistiche nel diritto amministrativo, societario e d’impresa, offrendo assistenza legale e consulenza strategica alle imprese, con particolare attenzione ai processi di internazionalizzazione e allo sviluppo delle attività economiche sia in ambito nazionale sia internazionale.</p></details></Reveal></MobileSection>
-  <MobileSection dark><p className="m-label">I professionisti</p><h2>Le persone<br /><em>dietro lo Studio.</em></h2><MobileProfessionalCard name="Avv. Luigi Ferrara" role="Fondatore · Diritto amministrativo" image="/images/luigi-ferrara-ritratto.png" position="50% 30%" href="/curriculum/" description="Patrocinio presso le Magistrature Superiori e consulenza strategica alle imprese." /><MobileProfessionalCard name="Avv. Nunzia Robustelli" role="Diritto societario e d’impresa" image="/images/nunzia-robustelli-enhanced.webp" position="50% 30%" href="/specializzazioni-legali/diritto-societario/" description="Consulenza alle aziende, governance e tutela degli interessi dell’impresa." /></MobileSection>
-  <MobileSection><p className="m-label">02 — Expertise</p><h2>Dove esperienza<br />e strategia<br /><em>si incontrano.</em></h2><div className="m-area-list">{[...LEGAL_AREAS,...BUSINESS_AREAS.slice(0,1)].map((area,i)=><Reveal key={area.href} delay={i*35}><a href={area.href}><span>{String(i+1).padStart(2,'0')}</span><h3>{area.title}</h3><EditorialArrow /></a></Reveal>)}</div></MobileSection>
-  <section className="m-business-feature"><img src="/images/business-hero.png" loading="lazy" alt="Porto commerciale internazionale" /><div><p className="m-label">Business Advisory</p><h2>Il diritto incontra<br /><em>la strategia.</em></h2><p>Strategia legale, accesso ai mercati e operazioni internazionali.</p><a className="m-text-link" href="/sezione-business/">Scopri Business <EditorialArrow /></a></div></section>
-  <MobileSection dark><p className="m-label">Il metodo</p><div className="m-area-list">{[['Analisi','Comprendere scenario e obiettivi.'],['Strategia','Costruire il percorso.'],['Tutela','Difendere interessi e risultati.']].map(([t,d],i)=><div className="m-method" key={t}><span>0{i+1}</span><div><h3>{t}</h3><p>{d}</p></div><EditorialArrow /></div>)}</div></MobileSection>
-  <MobileSection><p className="m-label">Insights</p><h2>Conoscere oggi.<br /><em>Decidere meglio.</em></h2><MobileInsights articles={getAllArticles().slice(0,3).map(toMeta)} /><a className="m-text-link" href="/blog/">Tutti gli articoli <EditorialArrow /></a></MobileSection><MobileCTA /></>
+  return <>
+    <section className="mh-cover" aria-labelledby="mh-title">
+      <img className="mh-cover-image" src="/images/sfodo sito.png" alt="Veduta serale di Sarno e del Vesuvio" />
+      <div className="mh-cover-overlay" /><div className="mh-cover-grid" aria-hidden="true" />
+      <div className="mh-cover-copy">
+        <p className="m-label mh-intro-label">Legal Counsel / Business Advisory</p>
+        <h1 id="mh-title" className="mh-wordmark"><span>LF</span><span>Business</span></h1>
+        <p className="mh-positioning">Competenza legale.<br />Visione strategica.<br />Prospettiva internazionale.</p>
+        <p className="mh-signature">Guiding Your Business Worldwide</p>
+        <nav className="mh-cover-actions" aria-label="Azioni principali"><a href="#mobile-studio"><span>Scopri lo Studio</span><small>01</small><EditorialArrow /></a><a href="/contattaci/"><span>Contattaci</span><small>02</small><EditorialArrow /></a></nav>
+      </div>
+    </section>
+    <MobileSection id="mobile-studio" className="mh-studio">
+      <Reveal><p className="m-kicker"><span>01</span> Studio</p><h2>Esperienza giuridica.<br /><em>Visione strategica.</em></h2><p className="m-lead">Due competenze complementari, un unico metodo: comprendere il contesto, costruire la strategia, tutelare il risultato.</p></Reveal>
+      <Reveal className="mh-studio-visual"><img src="/images/gallery/foto-17-sala-riunioni.jpeg" loading="lazy" alt="Sala riunioni dello Studio LF Business" /><span aria-hidden="true">LF / 01</span></Reveal>
+      <a className="m-editorial-link" href="#professionisti">Conosci i professionisti <EditorialArrow /></a>
+    </MobileSection>
+    <section id="professionisti" className="mh-people m-dark"><header><p className="m-kicker"><span>02</span> Professionisti</p><h2>Le persone.<br /><em>La competenza.</em></h2></header><Professional name="Luigi Ferrara" role="Avvocato" detail="Patrocinante presso le Magistrature Superiori" image="/images/luigi-ferrara-ritratto.png" href="/curriculum/" /><Professional name="Nunzia Robustelli" role="Avvocato" detail="Diritto societario e d’impresa" image="/images/nunzia-robustelli-enhanced.webp" href="/specializzazioni-legali/diritto-societario/" /></section>
+    <MobileSection dark id="expertise" className="mh-expertise"><p className="m-kicker"><span>03</span> Expertise</p><h2>Aree di attività</h2><div className="mh-expertise-list">{expertise.map(([title, description, href], i) => <Reveal key={title} delay={i * 35}><details><summary><span>{String(i + 1).padStart(2, '0')}</span><strong>{title}</strong><b aria-hidden="true">+</b></summary><div><p>{description}</p><a href={href}>Approfondisci <EditorialArrow /></a></div></details></Reveal>)}</div></MobileSection>
+    <section id="business" className="mh-business"><img src="/images/business-hero.png" loading="lazy" alt="Porto commerciale internazionale" /><div className="mh-business-overlay" /><Reveal className="mh-business-copy"><p className="m-kicker"><span>04</span> Business / International</p><h2>Legal thinking.<br /><em>Business perspective.</em></h2><p>Assistenza giuridica e visione strategica per operazioni internazionali, accesso ai mercati e progetti nel settore energetico.</p><ul><li>International Contracts</li><li>Market Entry</li><li>Strategic Relations</li><li>Energy</li><li>International Projects</li></ul><a className="m-editorial-link" href="/sezione-business/">Esplora l’area Business <EditorialArrow /></a></Reveal></section>
+    <MobileSection className="mh-authority"><p className="m-kicker"><span>05</span> Credibilità</p><h2>Autorevolezza,<br /><em>senza sovrastrutture.</em></h2><div className="mh-authority-list"><p>Magistrature Superiori</p><p>Partner 24 ORE</p><p>Italia / Mercati internazionali</p><p>Diritto / Business</p></div></MobileSection>
+    <MobileSection id="insights" className="mh-insights"><p className="m-kicker"><span>06</span> Insights</p><h2>Ultimi<br /><em>approfondimenti.</em></h2><MobileInsights articles={getAllArticles().slice(0, 3).map(toMeta)} /><a className="m-editorial-link" href="/blog/">Tutti gli articoli <EditorialArrow /></a></MobileSection>
+    <MobileCTA />
+  </>
 }
 
-export function MobileProfessionalCard({name,role,image,position,href,description}:{name:string;role:string;image:string;position:string;href:string;description:string}) {
-  return <Reveal><article className="m-professional"><a href={href}><img src={image} loading="lazy" alt={name} style={{objectPosition:position}} /><p className="m-label">{role}</p><div className="m-title-arrow"><h3>{name}</h3><EditorialArrow direction="external" /></div><p>{description}</p></a></article></Reveal>
+function Professional({ name, role, detail, image, href }: { name: string; role: string; detail: string; image: string; href: string }) {
+  return <Reveal as="article" className="mh-person"><a href={href}><figure><img src={image} loading="lazy" alt={`Avv. ${name}`} /></figure><div><p className="m-label">{role}</p><h3>{name}</h3><p>{detail}</p><span className="m-editorial-link">Profilo <EditorialArrow /></span></div></a></Reveal>
 }
