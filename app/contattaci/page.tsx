@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileContact } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function ContattaciPage() {
   return (
-    <>
+    <ResponsivePage mobile={<MobileContact />}>
       <Header />
       <main id="contenuto">
         <ContactHero />
@@ -33,6 +35,6 @@ export default function ContattaciPage() {
         <FloatingContact />
       </main>
       <Footer />
-    </>
+    </ResponsivePage>
   )
 }

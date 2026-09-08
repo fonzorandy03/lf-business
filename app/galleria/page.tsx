@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileGalleryPage } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function GalleriaPage() {
   return (
-    <>
+    <ResponsivePage mobile={<MobileGalleryPage />}>
       <Header />
       <main id="contenuto">
         <GalleryHero />
@@ -64,6 +66,6 @@ export default function GalleriaPage() {
         <GalleryCTA />
       </main>
       <Footer />
-    </>
+    </ResponsivePage>
   )
 }

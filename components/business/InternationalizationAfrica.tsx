@@ -1,3 +1,4 @@
+import { MobileDisclosure } from '@/components/mobile/MobileDisclosure'
 import Image from 'next/image'
 import { Reveal } from '@/components/Reveal'
 
@@ -24,7 +25,7 @@ const projects = [
     number: '01',
     place: 'Guinea Conakry',
     title: 'Cocoa Bridge',
-    category: 'Agroindustria Â· Formazione Â· Cooperazione',
+    category: 'Agroindustria · Formazione · Cooperazione',
     content: (
       <>
         Sviluppo del progetto <strong>Cocoa Bridge (cioccolato di Modica) - Africa Mediterranean
@@ -37,16 +38,16 @@ const projects = [
   },
   {
     number: '02',
-    place: 'Burundi Â· Ruanda Â· Uganda',
+    place: 'Burundi · Ruanda · Uganda',
     title: 'Regione dei Grandi Laghi',
-    category: 'Made in Italy Â· Moda Â· Agroalimentare',
+    category: 'Made in Italy · Moda · Agroalimentare',
     content: (
       <>
         Sviluppo di iniziative finalizzate alla <strong>promozione delle eccellenze italiane nei
         settori agroalimentare, moda e artigianato</strong>, favorendo nuovi canali commerciali e
-        partnership con operatori locali. Il comparto moda Ã¨ coordinato dallo <strong>stilista
-        Antonio Sasso e dai suoi brand</strong>, nellâ€™ambito di una strategia integrata di
-        valorizzazione del <strong>Made in Italy nei mercati dellâ€™Africa orientale</strong>.
+        partnership con operatori locali. Il comparto moda è coordinato dallo <strong>stilista
+        Antonio Sasso e dai suoi brand</strong>, nell’ambito di una strategia integrata di
+        valorizzazione del <strong>Made in Italy nei mercati dell’Africa orientale</strong>.
       </>
     ),
   },
@@ -54,11 +55,11 @@ const projects = [
     number: '03',
     place: 'Guinea Conakry',
     title: 'Sviluppo industriale e territoriale',
-    category: 'Infrastrutture Â· Economia circolare Â· Filiere',
+    category: 'Infrastrutture · Economia circolare · Filiere',
     content: (
       <>
-        Sono in fase di sviluppo e valutazione progettualitÃ  nei settori <strong>infrastrutture ed
-        edilizia, piscicoltura, trattamento e valorizzazione dei rifiuti, caffÃ¨ e karitÃ©</strong>,
+        Sono in fase di sviluppo e valutazione progettualità nei settori <strong>infrastrutture ed
+        edilizia, piscicoltura, trattamento e valorizzazione dei rifiuti, caffè e karité</strong>,
         attraverso il coinvolgimento di imprese e partner tecnici e finanziari.
       </>
     ),
@@ -67,22 +68,22 @@ const projects = [
     number: '04',
     place: 'Gabon',
     title: 'Polo avicolo integrato',
-    category: 'Produzione Â· Formazione Â· SostenibilitÃ ',
+    category: 'Produzione · Formazione · Sostenibilità',
     content: (
       <>
-        Progetto di internazionalizzazione di unâ€™impresa italiana specializzata nella filiera
+        Progetto di internazionalizzazione di un’impresa italiana specializzata nella filiera
         avicola, finalizzato alla realizzazione di un <strong>polo produttivo integrato</strong>
         comprendente allevamento, incubatoio, mangimificio, macellazione, trasformazione e
-        distribuzione. Lâ€™iniziativa contempla inoltre <strong>formazione professionale del personale
+        distribuzione. L’iniziativa contempla inoltre <strong>formazione professionale del personale
         locale, valorizzazione delle filiere agricole gabonesi e soluzioni energetiche
-        sostenibili</strong>, nellâ€™ambito delle interlocuzioni istituzionali con le competenti
-        AutoritÃ  del Gabon.
+        sostenibili</strong>, nell’ambito delle interlocuzioni istituzionali con le competenti
+        Autorità del Gabon.
       </>
     ),
   },
 ] as const
 
-export function InternationalizationAfrica() {
+export function InternationalizationAfrica({ mobile = false }: { mobile?: boolean } = {}) {
   return (
     <section id="africa-projects" className="relative scroll-mt-20 overflow-hidden bg-background">
       <div className="pointer-events-none absolute -right-36 top-16 h-[30rem] w-[30rem] rounded-full border border-gold/10" aria-hidden="true" />
@@ -95,7 +96,7 @@ export function InternationalizationAfrica() {
               Internazionalizzazione delle imprese
             </p>
             <h2 className="mt-6 max-w-4xl font-serif text-4xl leading-[1.05] text-ink text-balance sm:text-5xl lg:text-6xl">
-              Africa<span className="italic text-gold"> Â· Progetti e partnership internazionali.</span>
+              Africa<span className="italic text-gold"> · Progetti e partnership internazionali.</span>
             </h2>
           </div>
           <p className="max-w-md text-base leading-relaxed text-stone lg:col-span-4">
@@ -142,7 +143,7 @@ export function InternationalizationAfrica() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {projects.map((project, index) => (
-            <Reveal key={project.number} delay={index * 90}>
+            <Reveal key={project.number} delay={index * 90}><MobileDisclosure enabled={mobile} title={`${project.place} — ${project.title}`}>
               <article className="group relative flex h-full min-h-[28rem] flex-col overflow-hidden border border-ink/12 bg-secondary/55 p-7 transition-[background-color,border-color,box-shadow] duration-700 hover:border-gold/45 hover:bg-secondary sm:p-9 lg:p-10">
                 <div className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-gold to-transparent transition-transform duration-700 group-hover:scale-x-100" />
                 <span className="absolute right-7 top-3 font-serif text-8xl text-ink/[0.035]" aria-hidden="true">{project.number}</span>
@@ -155,7 +156,7 @@ export function InternationalizationAfrica() {
                 <p className="relative mt-4 text-[0.62rem] font-medium uppercase tracking-[0.19em] text-gold">{project.category}</p>
                 <p className="relative mt-7 flex-1 text-[0.95rem] leading-[1.82] text-stone [&_strong]:font-semibold [&_strong]:text-ink">{project.content}</p>
               </article>
-            </Reveal>
+            </MobileDisclosure></Reveal>
           ))}
         </div>
       </div>
@@ -174,10 +175,10 @@ export function InternationalizationAfrica() {
               Lo Studio cura il <strong className="font-medium text-ivory">coordinamento giuridico e
               istituzionale delle operazioni internazionali</strong>, la predisposizione e
               negoziazione degli accordi, la tutela delle imprese nei rapporti con partner esteri e
-              lâ€™assistenza nelle diverse fasi di sviluppo e strutturazione degli investimenti.
+              l’assistenza nelle diverse fasi di sviluppo e strutturazione degli investimenti.
             </Reveal>
             <Reveal as="p" delay={100} className="border-l border-gold pl-6 font-serif text-2xl leading-[1.5] text-ivory">
-              Lâ€™obiettivo Ã¨ creare un <span className="text-gold-soft">ponte tra le imprese italiane
+              L’obiettivo è creare un <span className="text-gold-soft">ponte tra le imprese italiane
               e i mercati africani</span>, integrando competenze giuridiche, relazioni istituzionali
               e sviluppo di partnership internazionali.
             </Reveal>
@@ -187,4 +188,3 @@ export function InternationalizationAfrica() {
     </section>
   )
 }
-

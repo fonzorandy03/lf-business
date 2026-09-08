@@ -1,3 +1,4 @@
+import { MobileDisclosure } from '@/components/mobile/MobileDisclosure'
 import { Download, FileText } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 
@@ -67,7 +68,7 @@ const documents = [
   },
 ] as const
 
-export function OilGasOperations() {
+export function OilGasOperations({ mobile = false }: { mobile?: boolean } = {}) {
   return (
     <section id="oil-gas-operations" className="relative scroll-mt-20 overflow-hidden bg-secondary/45">
       <div className="absolute right-0 top-0 h-96 w-96 rounded-full border border-gold/10 translate-x-1/2 -translate-y-1/2" aria-hidden="true" />
@@ -153,7 +154,7 @@ export function OilGasOperations() {
 
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {cifOptions.map((option, index) => (
-              <Reveal key={option.code} delay={index * 100}>
+              <Reveal key={option.code} delay={index * 100}><MobileDisclosure enabled={mobile} title={`${option.code} — ${option.title}`}>
                 <article className="group relative flex h-full flex-col overflow-hidden border border-white/12 bg-white/[0.035] p-7 transition-[border-color,background-color,box-shadow] duration-700 hover:border-gold/45 hover:bg-white/[0.06] hover:shadow-[inset_0_0_65px_rgba(191,151,84,0.06)] sm:p-8">
                   <div className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-700 group-hover:scale-x-100" />
                   <span className="font-serif text-5xl text-gold/40">{option.code}</span>
@@ -161,7 +162,7 @@ export function OilGasOperations() {
                   <p className="mt-6 text-sm leading-[1.75] text-ivory/68">{option.text}</p>
                   <p className="mt-4 text-sm leading-[1.75] text-ivory/52">{option.detail}</p>
                 </article>
-              </Reveal>
+              </MobileDisclosure></Reveal>
             ))}
           </div>
         </div>

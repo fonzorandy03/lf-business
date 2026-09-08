@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileArticle } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -68,7 +70,7 @@ export default async function ArticlePage({
   }
 
   return (
-    <>
+    <ResponsivePage mobile={<MobileArticle article={article}><MDXContent source={article.content} /></MobileArticle>}>
       <Header />
       <main>
         <script
@@ -154,7 +156,6 @@ export default async function ArticlePage({
         ) : null}
       </main>
       <Footer />
-    </>
+    </ResponsivePage>
   )
 }
-

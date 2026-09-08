@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileDirectory } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,7 +24,7 @@ const pillars = [
 ] as const
 
 export default function SpecializzazioniLegaliPage() {
-  return <><Header /><main>
+  return <ResponsivePage mobile={<MobileDirectory />}><Header /><main>
     <section className="site-hero relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
       <div className="absolute inset-0 -z-10"><Image src="/images/blog/diritto-amministrativo.png" alt="Palazzo istituzionale, simbolo delle specializzazioni legali" fill priority sizes="100vw" className="hero-cinematic-image object-cover" /><div className="hero-cinematic-overlay absolute inset-0 bg-gradient-to-t from-ink via-ink/65 to-ink/25" /><div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/20" /><div className="hero-light-sweep absolute inset-0" /></div>
       <div className="mx-auto grid w-full max-w-[1400px] gap-12 px-6 pb-24 pt-32 sm:px-10 lg:grid-cols-[1fr_22rem] lg:items-end lg:pb-28"><div className="max-w-4xl"><div className="hero-reveal hero-delay-1 flex items-center gap-3"><span className="h-px w-10 bg-gold" /><span className="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-gold-soft">Legal expertise</span></div><h1 className="hero-reveal hero-delay-2 mt-6 font-serif text-5xl leading-[.95] text-ivory sm:text-7xl lg:text-8xl">Conoscere il diritto.<br /><em className="font-normal text-gold-soft">Proteggere ciò che conta.</em></h1><p className="hero-reveal hero-delay-4 mt-8 max-w-2xl text-base leading-relaxed text-ivory/70 sm:text-lg">Competenze specialistiche per imprese, professionisti, cittadini e Pubbliche Amministrazioni, dalla consulenza preventiva alla difesa in giudizio.</p></div>
@@ -68,6 +70,5 @@ export default function SpecializzazioniLegaliPage() {
         </div>
       </div>
     </section>
-  </main><Footer /></>
+  </main><Footer /></ResponsivePage>
 }
-

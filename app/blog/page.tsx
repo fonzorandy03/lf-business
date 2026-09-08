@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileBlog } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -29,7 +31,7 @@ export default function BlogPage() {
   const listArticles = all.filter((a) => a.slug !== featured?.slug).map(toMeta)
 
   return (
-    <>
+    <ResponsivePage mobile={<MobileBlog />}>
       <Header />
       <main>
         <BlogHero count={all.length} />
@@ -53,6 +55,6 @@ export default function BlogPage() {
         </div>
       </main>
       <Footer />
-    </>
+    </ResponsivePage>
   )
 }

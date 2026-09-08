@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
+import './mobile.css'
 import { SITE_DESCRIPTION, SITE_URL } from '@/lib/site'
 import { LanguageProvider } from '@/components/LanguageProvider'
 
@@ -73,4 +74,3 @@ export default function RootLayout({
     </html>
   )
 }
-

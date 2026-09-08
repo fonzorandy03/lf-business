@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileBusinessDetail } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
@@ -23,12 +25,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const area = getBusinessArea(slug)
-  if (!area) return { title: 'Sezione Business â€” LF Business' }
+  if (!area) return { title: 'Sezione Business — LF Business' }
   return {
-    title: `${area.title} â€” LF Business`,
+    title: `${area.title} — LF Business`,
     description: area.description,
     openGraph: {
-      title: `${area.title} â€” LF Business`,
+      title: `${area.title} — LF Business`,
       description: area.description,
       images: [area.image],
     },
@@ -50,7 +52,7 @@ export default async function AreaDetailPage({
   const isOil = area.slug === 'prodotti-petroliferi'
   const isInternationalization = area.slug === 'internazionalizzazione'
   return (
-    <>
+    <ResponsivePage mobile={<MobileBusinessDetail area={area}>{isOil ? <OilGasOperations mobile /> : isInternationalization ? <InternationalizationAfrica mobile /> : <><section className="m-section">{area.longDescription.map(p=><p key={p}>{p}</p>)}</section><MarketWidgets /></>}</MobileBusinessDetail>}>
       <Header />
       <main>
         {/* Hero */}
@@ -117,7 +119,7 @@ export default async function AreaDetailPage({
                   La nostra assistenza
                 </span>
                 <p className="mt-6 font-serif text-2xl leading-[1.2] text-ink text-balance lg:text-3xl">
-                  {isMarkets ? 'Dati di mercato e competenze professionali in una visione coordinata.' : isOil ? 'Assistenza rigorosa per operazioni energetiche complesse e internazionali.' : 'Un presidio legale e strategico costruito intorno agli obiettivi dellâ€™impresa.'}
+                  {isMarkets ? 'Dati di mercato e competenze professionali in una visione coordinata.' : isOil ? 'Assistenza rigorosa per operazioni energetiche complesse e internazionali.' : 'Un presidio legale e strategico costruito intorno agli obiettivi dell’impresa.'}
                 </p>
                 <div className="mt-9 hidden h-px w-full bg-gradient-to-r from-gold/60 to-transparent lg:block" />
               </Reveal>
@@ -135,8 +137,8 @@ export default async function AreaDetailPage({
                 ))}
 
                 <Reveal className="mt-12 border-l-2 border-gold bg-secondary p-7 sm:p-9" delay={180}>
-                  <p className="font-serif text-2xl leading-tight text-ink sm:text-3xl">{isMarkets ? 'Le oscillazioni del petrolio incidono sulle vostre decisioni?' : isOil ? 'State strutturando unâ€™operazione nel settore energetico?' : 'State valutando un nuovo mercato o un accordo internazionale?'}</p>
-                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-stone">{isMarkets ? 'Affianchiamo alla lettura dei dati una valutazione legale e strategica calibrata sugli obiettivi dellâ€™impresa.' : isOil ? 'Un confronto preliminare consente di verificare procedure, controparti e garanzie prima di avviare la negoziazione.' : 'Un confronto iniziale permette di individuare opportunitÃ , rischi e prioritÃ  prima di assumere decisioni operative.'}</p>
+                  <p className="font-serif text-2xl leading-tight text-ink sm:text-3xl">{isMarkets ? 'Le oscillazioni del petrolio incidono sulle vostre decisioni?' : isOil ? 'State strutturando un’operazione nel settore energetico?' : 'State valutando un nuovo mercato o un accordo internazionale?'}</p>
+                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-stone">{isMarkets ? 'Affianchiamo alla lettura dei dati una valutazione legale e strategica calibrata sugli obiettivi dell’impresa.' : isOil ? 'Un confronto preliminare consente di verificare procedure, controparti e garanzie prima di avviare la negoziazione.' : 'Un confronto iniziale permette di individuare opportunità, rischi e priorità prima di assumere decisioni operative.'}</p>
                   <div className="mt-7">
                     <CTAButton href="/contattaci" variant="primary">Parliamo del vostro progetto</CTAButton>
                   </div>
@@ -175,7 +177,6 @@ export default async function AreaDetailPage({
         </section>
       </main>
       <Footer />
-    </>
+    </ResponsivePage>
   )
 }
-

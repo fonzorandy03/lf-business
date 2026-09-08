@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileDirectory } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function SezioneBusinessPage() {
   return (
-    <>
+    <ResponsivePage mobile={<MobileDirectory business />}>
       <Header />
       <main>
         <BusinessHero />
@@ -29,6 +31,6 @@ export default function SezioneBusinessPage() {
         <BusinessCTA />
       </main>
       <Footer />
-    </>
+    </ResponsivePage>
   )
 }

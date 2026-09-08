@@ -1,3 +1,5 @@
+import { ResponsivePage } from '@/components/mobile/MobileFrame'
+import { MobileCurriculum } from '@/components/mobile/MobilePages'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Download, ExternalLink } from 'lucide-react'
@@ -23,7 +25,7 @@ const highlights = [
 
 export default function CurriculumPage() {
   return (
-    <>
+    <ResponsivePage mobile={<MobileCurriculum />}>
       <Header />
       <main id="contenuto">
         <section className="site-hero relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
@@ -131,7 +133,6 @@ export default function CurriculumPage() {
         </section>
       </main>
       <Footer />
-    </>
+    </ResponsivePage>
   )
 }
-
