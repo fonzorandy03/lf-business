@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
 type ErrorPageProps = {
   error: Error & { digest?: string }
@@ -39,18 +40,14 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
               className="btn-luxury btn-luxury-primary group inline-flex items-center justify-center gap-3 px-8 py-3.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             >
               Riprova
-              <span aria-hidden="true" className="relative z-10 inline-block text-base leading-none transition-transform duration-500 group-hover:translate-x-1.5">
-                &rarr;
-              </span>
+              <EditorialArrow className="relative z-10 transition-transform duration-500 group-hover:translate-x-1.5" />
             </button>
             <Link
               href="/"
               className="btn-luxury btn-luxury-outline-light group inline-flex items-center justify-center gap-3 px-8 py-3.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-transparent"
             >
               Torna alla home
-              <span aria-hidden="true" className="relative z-10 inline-block text-base leading-none transition-transform duration-500 group-hover:translate-x-1.5">
-                &rarr;
-              </span>
+              <EditorialArrow className="relative z-10 transition-transform duration-500 group-hover:translate-x-1.5" />
             </Link>
           </div>
         </div>

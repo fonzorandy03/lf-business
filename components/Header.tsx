@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { NAV_LINKS } from '@/lib/site'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { EditorialArrow } from './icons/EditorialArrow'
 
 function Monogram({ light }: { light: boolean }) {
   return (
@@ -190,9 +191,7 @@ export function Header() {
                   <span className="flex-1 font-serif text-[clamp(1.35rem,6vw,1.7rem)] leading-none">
                     {link.label}
                   </span>
-                  <span aria-hidden="true" className="translate-x-0 text-lg text-gold/65 transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
+                  <EditorialArrow direction="external" className="translate-x-0 text-gold/65 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </li>
             )})}
@@ -212,5 +211,4 @@ export function Header() {
     </header>
   )
 }
-
 

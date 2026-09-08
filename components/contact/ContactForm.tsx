@@ -4,6 +4,7 @@ import { useId, useState, type FormEvent } from 'react'
 import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { sendContactRequest, type ContactPayload } from '@/lib/contact'
+import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
@@ -201,9 +202,7 @@ export function ContactForm() {
           ) : (
             <>
               Invia richiesta
-              <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
+              <EditorialArrow className="transition-transform duration-300 group-hover:translate-x-1" />
             </>
           )}
         </button>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import type { ComponentProps } from 'react'
+import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
 type Variant = 'primary' | 'ghost' | 'outline-light'
 
@@ -24,12 +25,7 @@ export function CTAButton({ variant = 'primary', className, children, ...props }
   return (
     <Link className={cn(base, variants[variant], className)} {...props}>
       {children}
-      <span
-        aria-hidden="true"
-        className="relative z-10 inline-block text-base leading-none transition-transform duration-500 group-hover:translate-x-1.5"
-      >
-        &rarr;
-      </span>
+      <EditorialArrow className="relative z-10 transition-transform duration-500 group-hover:translate-x-1.5" />
     </Link>
   )
 }

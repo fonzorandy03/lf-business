@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import type { BusinessArea } from '@/lib/business'
+import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
 interface AreaCardProps {
   area: BusinessArea
@@ -62,12 +63,7 @@ export function AreaCard({ area, sizes }: AreaCardProps) {
 
         <span className="mt-7 inline-flex w-fit items-center gap-3 border-b border-ivory/25 pb-2 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-ivory/80 transition-all duration-300 group-hover:border-gold group-hover:text-gold">
           Esplora l’area
-          <span
-            aria-hidden="true"
-            className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-          >
-            &rarr;
-          </span>
+          <EditorialArrow className="transition-transform duration-300 group-hover:translate-x-1" />
         </span>
         </div>
       </div>

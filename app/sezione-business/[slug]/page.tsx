@@ -13,6 +13,7 @@ import { MarketWidgets } from '@/components/business/MarketWidgets'
 import { OilGasOperations } from '@/components/business/OilGasOperations'
 import { InternationalizationAfrica } from '@/components/business/InternationalizationAfrica'
 import { BUSINESS_AREAS, getBusinessArea } from '@/lib/business'
+import { EditorialArrow } from '@/components/icons/EditorialArrow'
 
 export function generateStaticParams() {
   return BUSINESS_AREAS.map((a) => ({ slug: a.slug }))
@@ -77,12 +78,7 @@ export default async function AreaDetailPage({
               href="/sezione-business"
               className="hero-reveal hero-delay-1 group inline-flex items-center gap-2 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-ivory/60 transition-colors hover:text-gold"
             >
-              <span
-                aria-hidden="true"
-                className="inline-block transition-transform duration-300 group-hover:-translate-x-1"
-              >
-                &larr;
-              </span>
+              <EditorialArrow direction="back" className="transition-transform duration-300 group-hover:-translate-x-1" />
               Sezione Business
             </Link>
 
@@ -165,12 +161,7 @@ export default async function AreaDetailPage({
                 <span className="font-serif text-2xl font-medium text-ink text-balance transition-colors duration-300 group-hover:text-gold sm:text-4xl">
                   {next.title}
                 </span>
-                <span
-                  aria-hidden="true"
-                  className="text-2xl text-gold transition-transform duration-300 group-hover:translate-x-2 sm:text-3xl"
-                >
-                  &rarr;
-                </span>
+                <EditorialArrow className="text-gold transition-transform duration-300 group-hover:translate-x-2" />
               </span>
             </Link>
           </div>
