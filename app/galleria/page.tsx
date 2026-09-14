@@ -32,7 +32,7 @@ export default function GalleriaPage() {
         <GalleryHero />
 
         <section id="gallery-collection" className="gallery-collection relative scroll-mt-20 overflow-hidden bg-background py-24 sm:py-32">
-          <span className="pointer-events-none absolute right-[4%] top-10 font-serif text-[12rem] leading-none text-ink/[0.025] sm:text-[18rem]" aria-hidden="true">21</span>
+          <span className="pointer-events-none absolute right-[4%] top-10 font-serif text-[12rem] leading-none text-ink/[0.025] sm:text-[18rem]" aria-hidden="true">{allGalleryImages.length}</span>
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="relative mb-14 grid gap-8 border-b border-ink/10 pb-10 lg:grid-cols-12 lg:items-end md:mb-16">
               <div className="lg:col-span-8">

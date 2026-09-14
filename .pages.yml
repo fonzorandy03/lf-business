@@ -7,6 +7,14 @@ media:
     extensions: [jpg, jpeg, png, webp, avif]
     rename: safe
 
+  - name: gallery_images
+    label: Foto della galleria
+    input: public/images/gallery
+    output: /images/gallery
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: random
+
 settings:
   content:
     merge: true
@@ -19,6 +27,97 @@ settings:
       rename: "blog: rinomina {oldFilename} in {newFilename}"
 
 content:
+  - name: gallery
+    label: Galleria fotografica
+    type: file
+    path: content/gallery.json
+    format: json
+    fields:
+      - name: images
+        label: Foto in galleria
+        type: object
+        description: "Aggiungi una scheda per ogni foto. Trascina le schede per cambiare l'ordine, poi salva. Per pubblicare una foto disattiva Bozza."
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Titolo della foto
+            type: string
+            required: true
+          - name: src
+            label: Carica o scegli la foto
+            type: image
+            required: true
+            description: "Carica il file originale in JPG, PNG, WebP o AVIF. Se il telefono usa HEIC, esporta prima la foto in JPG."
+            options:
+              media: gallery_images
+              extensions: [jpg, jpeg, png, webp, avif]
+              rename: random
+          - name: category
+            label: Categoria
+            type: select
+            required: true
+            default: studio
+            options:
+              values:
+                - name: studio
+                  label: Interni dello Studio
+                - name: esterni
+                  label: Ingresso
+                - name: eventi
+                  label: Eventi e convegni
+                - name: territorio
+                  label: Luoghi
+          - name: location
+            label: Luogo
+            type: string
+            description: "Per esempio: Sarno, Napoli, Roma."
+          - name: caption
+            label: Didascalia
+            type: text
+            description: "Una breve descrizione dell'incontro o del luogo fotografato."
+          - name: alt
+            label: Descrizione per accessibilità
+            type: string
+            description: "Descrivi ciò che si vede nella foto. Se lasci vuoto, viene usato il titolo."
+          - name: orientation
+            label: Orientamento della foto
+            type: select
+            required: true
+            default: landscape
+            options:
+              values:
+                - name: landscape
+                  label: Orizzontale
+                - name: portrait
+                  label: Verticale
+          - name: span
+            label: Dimensione nella griglia desktop
+            type: select
+            default: regular
+            options:
+              values:
+                - name: regular
+                  label: Standard
+                - name: wide
+                  label: Panoramica
+                - name: tall
+                  label: Verticale
+                - name: large
+                  label: Grande, in evidenza
+          - name: date
+            label: Data dell'evento (facoltativa)
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - name: draft
+            label: Bozza (non visibile nella galleria)
+            type: boolean
+            default: true
+            description: "Disattiva per pubblicare la foto, poi premi Salva. Dopo l'aggiornamento automatico apparirà nella galleria."
+
   - name: blog
     label: Articoli del blog
     type: collection
@@ -119,4 +218,3 @@ content:
           switcher: true
           extensions: [jpg, jpeg, png, webp, avif]
           rename: safe
-
