@@ -183,6 +183,20 @@
     box-shadow: 0 12px 24px -20px var(--ink);
   }
 
+  /* Desktop gallery filters: keep the hover effect inside a stable footprint. */
+  @media (min-width: 768px) and (hover: hover) {
+    .gallery-collection [role='tablist'] {
+      overflow: visible;
+    }
+
+    .gallery-collection .filter-pill:hover {
+      transform: none;
+      background: color-mix(in oklab, var(--gold) 7%, transparent);
+      border-color: color-mix(in oklab, var(--gold) 58%, transparent);
+      box-shadow: 0 8px 20px -18px var(--ink);
+    }
+  }
+
   .page-button {
     border-radius: 50%;
     transition: color 0.35s ease, background-color 0.35s ease, border-color 0.35s ease,
