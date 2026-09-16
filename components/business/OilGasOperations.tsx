@@ -1,6 +1,7 @@
 import { MobileDisclosure } from '@/components/mobile/MobileDisclosure'
-import { Download, FileText } from 'lucide-react'
+import { ArrowUpRight, Download, FileText } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
+import { CONTACT } from '@/lib/site'
 
 const cifOptions = [
   {
@@ -224,6 +225,18 @@ export function OilGasOperations({ mobile = false }: { mobile?: boolean } = {}) 
                   <h3 className="mt-3 font-serif text-3xl text-ink">{document.title}</h3>
                   <p className="mt-4 flex-1 text-sm leading-[1.75] text-stone">{document.description}</p>
                   <div className="mt-8 flex flex-wrap gap-3">
+                    {document.title === 'SOP FIPA CIF' ? (
+                      <a
+                        href={`https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent('Buongiorno Avv. Ferrara, vorrei richiedere il documento SOP FIPA CIF e informazioni sulle procedure CIF FIPA.')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/button inline-flex min-h-11 items-center gap-3 bg-gold px-5 text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-gold-soft"
+                      >
+                        Invia una richiesta
+                        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <>
                     <a
                       href={document.href}
                       download={document.download}
@@ -240,6 +253,8 @@ export function OilGasOperations({ mobile = false }: { mobile?: boolean } = {}) 
                     >
                       Consulta
                     </a>
+                      </>
+                    )}
                   </div>
                 </article>
               </Reveal>
