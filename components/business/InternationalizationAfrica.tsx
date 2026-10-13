@@ -46,7 +46,7 @@ const projects = [
         Sviluppo di iniziative finalizzate alla <strong>promozione delle eccellenze italiane nei
         settori agroalimentare, moda e artigianato</strong>, favorendo nuovi canali commerciali e
         partnership con operatori locali. Il comparto moda è coordinato dallo <strong>stilista
-        Antonio Sasso e dai suoi brand</strong>, nell’ambito di una strategia integrata di
+        Emilio Sasso e dai suoi brand</strong>, nell’ambito di una strategia integrata di
         valorizzazione del <strong>Made in Italy nei mercati dell’Africa orientale</strong>.
       </>
     ),
