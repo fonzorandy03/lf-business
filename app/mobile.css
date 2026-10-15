@@ -435,6 +435,94 @@
   #africa-projects>div.relative>div:first-child p:first-child:before{margin-right:8px}
   .m-business-content+.m-contact-final{border-top:1px solid var(--m-hair-d);background:radial-gradient(80% 40% at 50% 0%,rgba(185,154,99,.16),transparent 70%),var(--m-ink)}
 
+  /* =========================================================================
+     Pages layer — stesso linguaggio della home applicato a tutte le pagine:
+     etichette a pillola, hero con alone e ingresso a cascata, schede con
+     numerazione, CTA finale premium, link di navigazione a pillola.
+     ========================================================================= */
+
+  /* Etichette a pillola */
+  .m-section>.m-label,.m-section>.m-kicker{display:inline-flex!important;align-items:center;gap:8px;margin:0 auto 18px!important;padding:7px 14px;border-radius:980px;background:rgba(125,97,54,.1);font-size:13px!important}
+  .m-section>.m-label:before,.m-section>.m-kicker:before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+  .m-section>.m-kicker span{padding:0;border:0}
+  .m-section>.m-label,.m-section>.m-kicker{display:flex!important;width:max-content;max-width:100%}
+  .m-dark.m-section>.m-label,.m-dark.m-section>.m-kicker{background:rgba(217,196,151,.12)}
+  .m-business-content :is(p,span)[class*='tracking-']{display:inline-flex!important;align-items:center;gap:8px;padding:7px 14px;border-radius:980px;background:rgba(125,97,54,.1);color:var(--m-gold-text)!important;font-size:13px!important}
+  .m-business-content [class*='bg-ink'] :is(p,span)[class*='tracking-']{background:rgba(217,196,151,.12);color:var(--m-gold-light)!important}
+  .m-business-content :is(p,span)[class*='tracking-']:before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+
+  /* Hero: alone dorato, ingresso a cascata, zoom lento */
+  .m-hero:after{content:'';position:absolute;inset:auto -25% -14% -25%;height:55%;z-index:-1;pointer-events:none;background:radial-gradient(55% 60% at 50% 100%,rgba(185,154,99,.34),transparent 72%);mix-blend-mode:screen}
+  .m-hero .m-label{display:inline-flex;align-items:center;padding:7px 14px;border-radius:980px;background:rgba(251,250,246,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(217,196,151,.28);font-size:13px;margin-bottom:16px}
+  @media(prefers-reduced-motion:no-preference){
+    .m-hero-copy{animation:none}
+    .m-hero-copy>*{animation:m-enter 1.05s var(--m-ease-out) both}
+    .m-hero-copy>:nth-child(1){animation-delay:.12s}
+    .m-hero-copy>:nth-child(2){animation-delay:.26s}
+    .m-hero-copy>:nth-child(3){animation-delay:.4s}
+    .m-hero-copy>:nth-child(4){animation-delay:.54s}
+    .m-hero-copy>:nth-child(5){animation-delay:.68s}
+    .m-hero-image{animation:m-zoom 1.6s var(--m-ease-out) both,m-kenburns 24s 1.6s ease-in-out infinite alternate}
+  }
+  @keyframes m-enter{from{opacity:0;transform:translateY(24px);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+  @keyframes m-kenburns{from{transform:scale(1)}to{transform:scale(1.08) translate3d(-1.5%,-1%,0)}}
+
+  /* Link di navigazione a pillola (es. "Tutte le aree Business", "Torna al blog") */
+  .m-section:has(>.m-text-link:only-child){padding:8px var(--m-pad) 44px}
+  .m-section>.m-text-link,.m-prose+.m-text-link,.m-section>article+.m-text-link{display:flex;justify-content:center;width:100%;max-width:340px;min-height:52px;margin:28px auto 0;padding:0 24px;border-radius:980px;background:var(--m-tile);color:var(--m-gold-text);box-shadow:inset 0 0 0 1px rgba(125,97,54,.28)}
+  .m-section>.m-text-link:only-child{margin-top:0}
+  .m-dark.m-section>.m-text-link{background:rgba(251,250,246,.08);color:var(--m-gold-light);box-shadow:inset 0 0 0 1px rgba(217,196,151,.3)}
+
+  /* CTA finale: card scura premium con alone dorato */
+  .m-contact-final{margin:20px 14px 28px;padding:56px 22px;border-radius:32px;border-top:0!important;background:radial-gradient(80% 50% at 50% 0%,rgba(185,154,99,.3),transparent 70%),linear-gradient(180deg,#1a1c1f,#101214)!important;box-shadow:0 30px 60px -30px rgba(16,18,20,.55),inset 0 0 0 1px rgba(217,196,151,.18)}
+  .m-business-content+.m-contact-final{border-top:0}
+  .m-contact-final .m-kicker{margin-inline:auto!important;width:max-content}
+
+  /* Didascalia/ link sotto la foto dello studio (home) è gestito nel modulo home */
+
+  /* Directory: freccia circolare e profondità */
+  .m-directory article>a{position:relative;box-shadow:0 1px 2px rgba(16,18,20,.05),0 22px 40px -26px rgba(16,18,20,.34)}
+  .m-directory .m-title-arrow svg{display:block!important;position:absolute;top:18px;right:18px;width:38px;height:38px;padding:12px;border-radius:50%;background:rgba(125,97,54,.1);color:var(--m-gold-text)}
+  .m-directory .m-label{padding-right:44px}
+  .m-directory img{margin-top:24px}
+
+  /* Capitoli (dettaglio specializzazioni): badge numerati */
+  .m-chapters{background:transparent;box-shadow:none;display:grid;gap:10px;overflow:visible;border-radius:0}
+  .m-chapters details{padding:0 18px;border-radius:22px;background:var(--m-tile);box-shadow:0 1px 2px rgba(16,18,20,.05),0 16px 30px -24px rgba(16,18,20,.3)}
+  .m-chapters details+details:before{display:none}
+  .m-chapters summary{grid-template-columns:40px 1fr 28px;gap:12px;min-height:76px;padding:16px 0}
+  .m-chapters summary span{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:var(--m-gold-grad);color:#fff;font-size:14px;font-weight:700}
+  .m-chapters summary b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(125,97,54,.12);font-size:20px;font-weight:400;line-height:1}
+  .m-chapters details[open] summary b{background:var(--m-gold);color:#fff}
+  .m-chapters details>div{padding:0 0 22px 0}
+
+  /* Contatti / curriculum / galleria: tocchi finali */
+  .m-contact-person{box-shadow:0 1px 2px rgba(16,18,20,.05),0 20px 36px -26px rgba(16,18,20,.3)}
+  .m-contact-person h3{font-size:26px}
+  .m-area-list{box-shadow:0 1px 2px rgba(16,18,20,.05),0 20px 36px -26px rgba(16,18,20,.3)}
+  .m-gallery button{box-shadow:0 22px 40px -26px rgba(16,18,20,.5)}
+  .m-insights article>a{box-shadow:0 1px 2px rgba(16,18,20,.05),0 20px 36px -26px rgba(16,18,20,.3)}
+  .m-search input,.m-search select,.m-select{box-shadow:inset 0 0 0 1px rgba(16,18,20,.1),0 8px 20px -16px rgba(16,18,20,.3)}
+
+  /* Footer: separatore sfumato */
+  .m-footer{border-top:0;background:linear-gradient(180deg,#0b0c0e,var(--m-ink) 30%)}
+  .m-footer-social a{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+
+  /* Rifiniture pagine Business e directory */
+  .m-business-content :is(p,span)[class*='tracking-']{display:flex!important;width:max-content;max-width:100%;margin:0 auto 14px!important}
+  .m-business-content :is(p,span)[class*='tracking-']:before{margin-right:8px}
+  .m-business-content :is(article,div)[class*='p-7'] :is(p,span)[class*='tracking-']{margin-left:0!important;margin-right:auto!important}
+  .m-business-content span.font-serif{font-weight:700;font-size:22px;letter-spacing:-.03em;background:var(--m-gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+  .m-business-content article[class*='bg-secondary'],.m-business-content div[class*='border'][class*='p-7']{border-radius:24px;box-shadow:0 1px 2px rgba(16,18,20,.05),0 18px 34px -24px rgba(16,18,20,.3)!important}
+  .m-business-content [class*='h-12'][class*='w-12'],.m-business-content [class*='h-14'][class*='w-14'],.m-business-content [class*='h-11'][class*='w-11']{border-radius:14px!important;background:rgba(125,97,54,.1)!important;border:0!important}
+  .m-directory .m-title-arrow svg{top:auto;bottom:auto;position:absolute;right:18px;top:auto}
+  .m-directory article>a{--arrow-bottom:18px}
+  .m-directory .m-title-arrow svg{inset:auto 18px 18px auto!important;background:rgba(251,250,246,.92)!important;color:var(--m-ink)!important;box-shadow:0 8px 20px -8px rgba(16,18,20,.45);z-index:2}
+  .m-directory .m-label{padding-right:0}
+  .m-section>.m-label{margin-bottom:18px!important}
+
+  .m-business-content :is(article,div)[class*='p-7'] :is(p,span)[class*='tracking-']{display:inline-flex!important;margin:0 8px 8px 0!important}
+
   /* Animazioni di comparsa guidate dallo scroll (progressive enhancement) */
   @supports (animation-timeline: view()){
     @media (prefers-reduced-motion: no-preference){
