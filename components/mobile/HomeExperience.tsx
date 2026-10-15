@@ -94,7 +94,7 @@ export function HomeExperience({ articles }: { articles: HomeArticle[] }) {
   return <div ref={root} className={styles.root} data-no-translate data-mobile-home="editorial-2026">
     <section className={styles.hero} aria-labelledby="mobile-home-title">
       <img className={styles.heroImage} src="/images/sfodo sito.png" alt="" fetchPriority="high" />
-      <div className={styles.heroShade} aria-hidden="true" />
+      <div className={styles.heroShade} aria-hidden="true" /><div className={styles.heroGlow} aria-hidden="true" />
       <div className={styles.heroContent}>
         <p className={styles.eyebrow}>{t.label}</p>
         <h1 id="mobile-home-title" className={styles.wordmark}>LF Business<span className={styles.brandRule} aria-hidden="true" /></h1>
@@ -116,8 +116,8 @@ export function HomeExperience({ articles }: { articles: HomeArticle[] }) {
 
     <section id="professionisti" className={`${styles.section} ${styles.people}`} aria-labelledby="home-people-title">
       <header data-home-reveal><p className={styles.kicker}>02 / {t.people}</p><h2 id="home-people-title" className={styles.heading}>{t.peopleTitle}<br /><em>{t.peopleAccent}</em></h2></header>
-      <article className={styles.person} data-home-reveal><img src="/images/luigi-ferrara-ritratto.png" loading="lazy" alt="Avv. Luigi Ferrara" width="480" height="600" /><div><p className={styles.eyebrow}>{t.lawyer}</p><h3>Luigi<br />Ferrara</h3><p className={styles.personDetail}>{t.luigi}</p><a className={styles.textLink} href={localHref('/curriculum/')}>{t.profile}<EditorialArrow /></a></div></article>
-      <article className={styles.person} data-home-reveal><img src="/images/nunzia-robustelli-enhanced.webp" loading="lazy" alt="Avv. Nunzia Robustelli" width="480" height="600" /><div><p className={styles.eyebrow}>{t.lawyer}</p><h3>Nunzia<br />Robustelli</h3><p className={styles.personDetail}>{t.nunzia}</p><a className={styles.textLink} href={localHref('/specializzazioni-legali/diritto-societario/')}>{t.practice}<EditorialArrow /></a></div></article>
+      <div className={styles.rail}><article className={styles.person} data-home-reveal><img src="/images/luigi-ferrara-ritratto.png" loading="lazy" alt="Avv. Luigi Ferrara" width="480" height="600" /><div><p className={styles.eyebrow}>{t.lawyer}</p><h3>Luigi<br />Ferrara</h3><p className={styles.personDetail}>{t.luigi}</p><a className={styles.textLink} href={localHref('/curriculum/')}>{t.profile}<EditorialArrow /></a></div></article>
+      <article className={styles.person} data-home-reveal><img src="/images/nunzia-robustelli-enhanced.webp" loading="lazy" alt="Avv. Nunzia Robustelli" width="480" height="600" /><div><p className={styles.eyebrow}>{t.lawyer}</p><h3>Nunzia<br />Robustelli</h3><p className={styles.personDetail}>{t.nunzia}</p><a className={styles.textLink} href={localHref('/specializzazioni-legali/diritto-societario/')}>{t.practice}<EditorialArrow /></a></div></article></div>
     </section>
 
     <section id="expertise" className={`${styles.section} ${styles.expertise}`} aria-labelledby="home-expertise-title">

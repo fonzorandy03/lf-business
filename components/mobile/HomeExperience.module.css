@@ -133,11 +133,18 @@
   .root [data-home-reveal] { transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
   .root [data-pending='true']:not([data-visible='true']) { opacity: 0; transform: translateY(32px); }
   @media (prefers-reduced-motion: no-preference) {
-    .root .heroImage { animation: heroZoom 1.8s var(--ease-out) both; }
-    .heroContent { animation: entrance 1s .15s var(--ease-out) both; }
-    .heroFoot { animation: entrance 1s .35s var(--ease-out) both; }
-    @keyframes entrance { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
-    @keyframes heroZoom { from { opacity: 0; transform: scale(1.08); } to { opacity: 1; transform: none; } }
+    .root .heroImage { animation: heroZoom 1.8s var(--ease-out) both, kenburns 24s 1.8s ease-in-out infinite alternate; }
+    .heroContent > * { animation: entrance 1.1s var(--ease-out) both; }
+    .heroContent > :nth-child(1) { animation-delay: .15s; }
+    .heroContent > :nth-child(2) { animation-delay: .27s; }
+    .heroContent > :nth-child(3) { animation-delay: .39s; }
+    .heroContent > :nth-child(4) { animation-delay: .5s; }
+    .heroContent > :nth-child(5) { animation-delay: .62s; }
+    .heroContent > :nth-child(6) { animation-delay: .74s; }
+    .heroFoot { animation: entrance 1.1s .95s var(--ease-out) both; }
+    @keyframes entrance { from { opacity: 0; transform: translateY(26px); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+    @keyframes heroZoom { from { opacity: 0; transform: scale(1.1); } to { opacity: 1; transform: scale(1); } }
+    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.09) translate3d(-1.5%, -1%, 0); } }
   }
   @media (prefers-reduced-motion: reduce) {
     .root [data-home-reveal], .accordion summary svg, .root :is(.heroActions a, .heroFoot a, .wideLink, .whatsapp, .textLink) { transition: none; }
@@ -155,5 +162,64 @@
     .root .section, .businessBody, .root .hero { padding-left: 18px; padding-right: 18px; }
     .root .wordmark { font-size: 50px; }
     .root .heroActions a { padding: 0 18px; font-size: 15px; }
+  }
+
+  /* ===== Upgrade: pill kicker, glows, rail, featured article, contact card, scroll-driven effects ===== */
+  .root .kicker { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 7px 14px; border-radius: 980px; background: rgba(125,97,54,.1); }
+  .root .kicker::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .root :is(.expertise, .business) .kicker { background: rgba(217,196,151,.12); }
+  .root .heading { font-size: clamp(40px, 11.4vw, 50px); }
+  .root .hero .eyebrow { display: inline-flex; padding: 7px 14px; border-radius: 980px; background: rgba(251,250,246,.1); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: inset 0 0 0 1px rgba(217,196,151,.28); }
+  .heroGlow { position: absolute; inset: auto -25% -12% -25%; height: 62%; z-index: -1; pointer-events: none; background: radial-gradient(55% 60% at 50% 100%, rgba(185,154,99,.38), transparent 72%); mix-blend-mode: screen; }
+  .root .expertise { background: radial-gradient(90% 38% at 50% 0%, rgba(185,154,99,.18), transparent 70%), var(--ink); padding-bottom: 40px; }
+  .root .people { background: linear-gradient(180deg, #f4f0e8 0%, #ebe6db 40%, #ebe6db 100%); }
+
+  /* People: horizontal snap rail */
+  .rail { display: flex; gap: 14px; margin: 32px -22px -12px; padding: 0 22px 36px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 22px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .rail::-webkit-scrollbar { display: none; }
+  .root .rail .person { flex: 0 0 80%; margin-top: 0; scroll-snap-align: center; box-shadow: 0 1px 2px rgba(16,18,20,.06), 0 24px 40px -24px rgba(16,18,20,.28); }
+  .root .rail .person > img { aspect-ratio: 4 / 4.6; }
+
+  /* Insights: featured first article */
+  .articles { background: transparent; border-radius: 0; display: grid; gap: 12px; overflow: visible; }
+  .articles article { background: var(--tile); border-radius: 22px; overflow: hidden; }
+  .articles article + article::before { display: none; }
+  .articles article:first-child a { grid-template-columns: 1fr; gap: 0; padding: 0; text-align: center; }
+  .articles article:first-child a > img { order: -1; width: 100%; height: 210px; border-radius: 0; }
+  .articles article:first-child a > div { padding: 22px 22px 26px; }
+  .root .articles article:first-child h3 { font-size: 22px; line-height: 1.22; }
+
+  /* Business: tiles */
+  .businessBody nav { background: transparent; border-radius: 0; display: grid; gap: 10px; overflow: visible; }
+  .businessBody nav a { background: var(--tile-d); border-radius: 20px; min-height: 84px; padding: 18px 22px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.07); }
+  .businessBody nav a + a::before { display: none; }
+  .businessCover { overflow: hidden; }
+  .businessCover > img { height: 124%; top: -12%; bottom: auto; }
+
+  /* Contact: dark premium card */
+  .root .contact { background: var(--paper); padding: 20px 14px 40px; border-top: 0; }
+  .contact > div { padding: 56px 24px; border-radius: 32px; color: #fbfaf6; background: radial-gradient(80% 50% at 50% 0%, rgba(185,154,99,.28), transparent 70%), linear-gradient(180deg, #1a1c1f, #101214); box-shadow: 0 30px 60px -30px rgba(16,18,20,.55), inset 0 0 0 1px rgba(217,196,151,.18); }
+  .root .contact .kicker { color: var(--gold-light); background: rgba(217,196,151,.12); }
+  .root .contact .heading em { background-image: var(--grad-d); }
+  .root .contact .body { color: var(--muted-d); }
+  .root .contact .whatsapp { background: var(--gold); color: var(--ink); }
+  .root .contact .whatsapp svg { color: var(--ink); }
+  .root .contact .wideLink { background: rgba(251,250,246,.1); color: #fbfaf6; }
+  .root .contact .contactLink { color: var(--gold-light); }
+
+  /* Scroll-driven effects (progressive enhancement) */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .heroContent { animation: heroOut linear both; animation-timeline: scroll(root); animation-range: 0 60svh; }
+      .heroFoot { animation: heroOut linear both; animation-timeline: scroll(root); animation-range: 0 40svh; }
+      .office { animation: figIn linear both; animation-timeline: view(); animation-range: entry 0% entry 90%; transform-origin: 50% 100%; }
+      .rail .person { animation: figIn linear both; animation-timeline: view(inline); animation-range: entry 0% entry 100%; }
+      .businessCover > img { animation: parallax linear both; animation-timeline: view(); animation-range: cover; }
+      .root .heading { animation: headIn linear both; animation-timeline: view(); animation-range: entry 5% entry 60%; }
+      @keyframes heroOut { to { opacity: 0; transform: translateY(-48px) scale(.97); filter: blur(4px); } }
+      @keyframes figIn { from { opacity: .4; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+      @keyframes parallax { from { transform: translateY(-9%); } to { transform: translateY(9%); } }
+      @keyframes headIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    }
   }
 }
