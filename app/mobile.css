@@ -206,7 +206,8 @@
 
   /* ---------- Business detail (componenti condivisi, solo adattamento) ---------- */
   .m-business-content{background:var(--m-paper)}
-  .m-business-content>section>div:not([aria-hidden]){padding:0}
+  .m-business-content>section>div:not([aria-hidden]):not([class*='mx-auto']){padding:0}
+  .m-business-content>section>div[class*='mx-auto']{padding-left:var(--m-pad);padding-right:var(--m-pad)}
   .m-business-content .absolute{display:none}
   .m-business-content img{display:block;border-radius:var(--m-r-md)}
   .m-business-content [class*='min-h-']{min-height:0}
@@ -559,6 +560,30 @@
   .lf-mobile details article{background:transparent!important;box-shadow:none!important;border-radius:0!important;border:0!important;padding:0!important;margin:0;min-height:0!important}
   .lf-mobile .m-business-content details article{background:transparent!important;box-shadow:none!important;border-radius:0!important;border:0!important}
   .lf-mobile details article:after,.lf-mobile details article:before{display:none!important}
+
+  /* Business: titoli secondari centrati, citazioni come card */
+  .m-business-content div:not([class*='p-7']):not([class*='p-8'])>h3{text-align:center}
+  .m-business-content :is(p,div)[class*='border-l']{border-left:0!important;padding:20px 22px!important;margin-top:8px;background:var(--m-tile);border-radius:var(--m-r-md);box-shadow:0 1px 2px rgba(16,18,20,.05),0 18px 34px -24px rgba(16,18,20,.3);font-size:18px!important;line-height:1.5!important;text-align:left}
+  .m-business-content>section>div[class*='mx-auto']>*{min-width:0}
+
+  /* Galleria: griglia a due colonne con foto orizzontali a tutta larghezza e didascalie sovrapposte */
+  .m-gallery{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:dense;gap:10px;margin-top:20px}
+  .m-gallery figure{position:relative;margin:0;border-radius:22px;overflow:hidden;background:var(--m-ink);box-shadow:0 18px 32px -22px rgba(16,18,20,.5)}
+  .m-gallery figure button{display:block;width:100%;height:100%;padding:0;border:0;border-radius:0;box-shadow:none;background:none;overflow:hidden}
+  .m-gallery figure img{width:100%;height:100%;border-radius:0;transition:transform .9s var(--m-ease-out)}
+  .m-gallery figure button:active img{transform:scale(1.04)}
+  .m-gallery figcaption{position:absolute;inset:auto 0 0 0;margin:0;padding:44px 14px 12px;background:linear-gradient(0deg,rgba(16,18,20,.8) 0%,rgba(16,18,20,.35) 55%,transparent 100%);color:#fff;font-size:14px;font-weight:600;line-height:1.25;letter-spacing:-.01em;text-align:left;pointer-events:none}
+  .m-gallery figcaption span{display:block;margin-top:2px;color:rgba(255,255,255,.72);font-size:12px;font-weight:400;letter-spacing:0}
+
+  /* Galleria: ritmo regolare (1 grande + 4 piccole) per armonia, indipendente dall'orientamento */
+  .m-gallery figure img{aspect-ratio:4/5!important;object-fit:cover}
+  .m-gallery figure:nth-child(5n+1){grid-column:1/-1}
+  .m-gallery figure:nth-child(5n+1) img{aspect-ratio:16/11!important}
+  .m-gallery figure:nth-child(5n+1):has(img[style*='3 / 4']) img{aspect-ratio:5/6!important}
+  .m-gallery figure:not(:nth-child(5n+1)) figcaption{padding:40px 12px 10px;font-size:13px}
+  .m-gallery figure:not(:nth-child(5n+1)) figcaption span{font-size:11px}
+  .m-gallery figure:nth-child(5n+1) figcaption{padding:56px 18px 16px;font-size:18px}
+  .m-gallery figure:nth-child(5n+1) figcaption span{font-size:13px}
 
   /* Animazioni di comparsa guidate dallo scroll (progressive enhancement) */
   @supports (animation-timeline: view()){
