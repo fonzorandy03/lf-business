@@ -206,7 +206,7 @@
 
   /* ---------- Business detail (componenti condivisi, solo adattamento) ---------- */
   .m-business-content{background:var(--m-paper)}
-  .m-business-content>section>div:not([aria-hidden]){padding:64px var(--m-pad)}
+  .m-business-content>section>div:not([aria-hidden]){padding:0}
   .m-business-content .absolute{display:none}
   .m-business-content img{display:block;border-radius:var(--m-r-md)}
   .m-business-content [class*='min-h-']{min-height:0}
@@ -522,6 +522,43 @@
   .m-section>.m-label{margin-bottom:18px!important}
 
   .m-business-content :is(article,div)[class*='p-7'] :is(p,span)[class*='tracking-']{display:inline-flex!important;margin:0 8px 8px 0!important}
+
+  /* Spazi tra sezioni Business: niente vuoti */
+  .m-business-content div[class*='mx-auto'][class*='py-']{padding-top:48px!important;padding-bottom:48px!important}
+  .m-business-content div[class*='mt-12'],.m-business-content div[class*='mt-14'],.m-business-content div[class*='mt-16']{margin-top:28px!important}
+  .m-business-content div[class*='pb-12'],.m-business-content div[class*='pb-14']{padding-bottom:28px!important}
+
+  /* Schede documento (Oil & Gas): intestazione ordinata */
+  .m-business-content article>div[class*='justify-between']{align-items:center!important;gap:12px}
+  .m-business-content article>div[class*='justify-between']>span:last-child{display:inline-flex!important;align-items:center;margin:0!important;padding:7px 12px!important;border-radius:980px;background:rgba(16,18,20,.06)!important;color:var(--m-muted)!important;font-size:12px!important;font-weight:600;letter-spacing:0!important;text-transform:none!important;white-space:nowrap}
+  .m-business-content article>div[class*='justify-between']>span:last-child:before{display:none!important}
+  .m-business-content article>p[class*='tracking-']{margin:20px 0 10px!important}
+  .m-business-content article>h3{margin-top:0!important;font-size:26px!important;line-height:1.15;letter-spacing:-.03em}
+  .m-business-content article>p[class*='flex-1']{margin-top:12px!important}
+  .m-business-content article>div[class*='flex-wrap']{margin-top:24px!important;gap:10px!important}
+  .m-business-content article>div[class*='flex-wrap']>a{border-radius:980px!important;min-height:48px!important;padding:0 22px!important;font-size:16px!important;font-weight:500!important;letter-spacing:-.01em!important;text-transform:none!important}
+
+  /* Aperture "+" : movimento fluido ovunque */
+  .lf-mobile{interpolate-size:allow-keywords}
+  .lf-mobile summary{-webkit-tap-highlight-color:transparent;transition:background-color .25s var(--m-ease);border-radius:16px}
+  .lf-mobile summary:active{background:rgba(125,97,54,.07)}
+  .lf-mobile details[open]>summary:active{background:transparent}
+  .lf-mobile details>summary::marker{content:''}
+  .lf-mobile details[open]>:not(summary){animation:m-open .55s var(--m-ease-out) both}
+  @supports selector(::details-content){
+    .lf-mobile details::details-content{block-size:0;overflow:clip;opacity:0;transition:block-size .55s var(--m-ease-out),opacity .4s var(--m-ease),content-visibility .55s allow-discrete}
+    .lf-mobile details[open]::details-content{block-size:auto;opacity:1}
+    .lf-mobile details[open]>:not(summary){animation:m-open-soft .55s .05s var(--m-ease-out) both}
+  }
+  /* icona "+" con piccolo rimbalzo */
+  .m-chapters summary b,#africa-projects details>summary:after,.m-business-content summary:after,.accordion summary svg{transition:transform .5s cubic-bezier(.34,1.56,.64,1),background-color .25s,color .25s}
+  @keyframes m-open{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+  @keyframes m-open-soft{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.lf-mobile details::details-content{transition:none}.lf-mobile details[open]>:not(summary){animation:none}}
+
+  .lf-mobile details article{background:transparent!important;box-shadow:none!important;border-radius:0!important;border:0!important;padding:0!important;margin:0;min-height:0!important}
+  .lf-mobile .m-business-content details article{background:transparent!important;box-shadow:none!important;border-radius:0!important;border:0!important}
+  .lf-mobile details article:after,.lf-mobile details article:before{display:none!important}
 
   /* Animazioni di comparsa guidate dallo scroll (progressive enhancement) */
   @supports (animation-timeline: view()){
